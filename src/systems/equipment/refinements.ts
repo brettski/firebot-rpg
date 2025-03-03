@@ -1,5 +1,10 @@
 import { setCharacterMeta } from '../../firebot/firebot';
-import { StoredArmor, StoredShield, StoredWeapon } from '../../types/equipment';
+import {
+    StoredArmor,
+    StoredShield,
+    StoredSpell,
+    StoredWeapon,
+} from '../../types/equipment';
 import { EquippableSlots } from '../../types/user';
 import { getUserData } from '../user/user';
 
@@ -79,4 +84,41 @@ export async function increaseRefinementLevelOfUserItem(
 
     // Return the item to it's slot with the new properties.
     await setCharacterMeta(username, item, slot);
+}
+
+export function applyTransferLoss(reinforcements: number): {
+    statLoss: boolean;
+    reinforcements: number;
+} {
+    let statsLost = false;
+    let newReinforcements = 0;
+    const lossChance = 0.25; // 25% chance
+    const lossPercentage = 0.1; // 10% loss
+
+    // Determine if loss should be applied
+    if (Math.random() < lossChance) {
+        const lostPoints = Math.floor(reinforcements * lossPercentage);
+        statsLost = true;
+        newReinforcements = reinforcements - lostPoints;
+    }
+
+    return {
+        statLoss: statsLost,
+        reinforcements: newReinforcements,
+    };
+}
+
+export async function transferReinforcements(
+    username: string,
+    storedItem: StoredWeapon | StoredArmor | StoredShield | StoredSpell,
+    reinforcements: number
+) {
+    // Update the refinements property on the stored item
+    const updatedStoredItem = {
+        ...storedItem,
+        refinements: reinforcements,
+    };
+
+    // Save the updated stored item to the user's backpack
+    await setCharacterMeta(username, updatedStoredItem, 'backpack');
 }

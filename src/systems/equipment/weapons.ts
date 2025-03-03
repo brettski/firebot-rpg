@@ -1,12 +1,7 @@
 import { weaponList } from '../../data/weapons';
 import { Rarity, StoredWeapon, Weapon } from '../../types/equipment';
-import { addOrSubtractRandomPercentage, filterArrayByProperty } from '../utils';
-import {
-    getUserHandItemEnchantmentCount,
-    generateEnchantmentList,
-} from './enchantments';
+import { filterArrayByProperty } from '../utils';
 import { getWeightedRarity } from './helpers';
-import { getUserHandItemRefinementCount } from './refinements';
 
 /**
  * Selects a random weapon of a certain rarity.
@@ -40,31 +35,22 @@ export async function generateWeaponForUser(
     username: string,
     rarity: Rarity[]
 ): Promise<StoredWeapon> {
-    const userEnchantmentValues = await getUserHandItemEnchantmentCount(
-        username
-    );
-    const userRefinementValues = await getUserHandItemRefinementCount(username);
-
-    const baseEnchantmentValue = Math.max(
-        userEnchantmentValues.main_hand,
-        userEnchantmentValues.off_hand
-    );
-    const baseRefinementValue = Math.max(
-        userRefinementValues.mainHand,
-        userRefinementValues.offHand
-    );
-
-    // Get our weapon, our new refinement value, and our new enchantment stats.
+    // Get our weapon
     const weapon = getWeaponFilteredByRarity(rarity);
-    const refinementValue = addOrSubtractRandomPercentage(baseRefinementValue);
-    const enchantmentStats = generateEnchantmentList(baseEnchantmentValue);
 
     // Combine them into a "stored weapon" and return.
     return {
         id: weapon.id,
         itemType: 'weapon',
         nickname: null,
-        refinements: refinementValue,
-        enchantments: enchantmentStats,
+        refinements: 0,
+        enchantments: {
+            earth: 0,
+            wind: 0,
+            fire: 0,
+            water: 0,
+            light: 0,
+            darkness: 0,
+        },
     };
 }

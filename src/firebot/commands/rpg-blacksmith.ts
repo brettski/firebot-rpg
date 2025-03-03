@@ -1,5 +1,9 @@
 import { UserCommand } from '@crowbartools/firebot-custom-scripts-types/types/modules/command-manager';
-import { increaseRefinementLevelOfUserItem } from '../../systems/equipment/refinements';
+import {
+    applyTransferLoss,
+    increaseRefinementLevelOfUserItem,
+    transferReinforcements,
+} from '../../systems/equipment/refinements';
 import {
     getRefinementBaseCost,
     getRefinementCostMultiplier,
@@ -8,6 +12,7 @@ import {
 import { calculateShopCost } from '../../systems/shops/shops';
 import { getUserName, getUserData } from '../../systems/user/user';
 import {
+    StorableItems,
     StoredArmor,
     StoredShield,
     StoredSpell,
@@ -100,6 +105,71 @@ async function shopReinforceItem(
     }
 }
 
+// Function to handle the transfer of reinforcement stats
+async function shopTransferReinforcement(
+    userCommand: UserCommand,
+    itemSlot: EquippableSlots
+) {
+    const transferCost = 100; // Define the cost for transferring attributes
+
+    const username = userCommand.commandSender;
+    const userdata = await getUserData(username);
+    const userItem = userdata[itemSlot] as
+        | StoredWeapon
+        | StoredArmor
+        | StoredShield
+        | StoredSpell;
+    const storedItem = userdata.backpack as StorableItems;
+    const currencyName = getCurrencyName();
+    const characterCurrencyTotal = await getUserCurrencyTotal(username);
+
+    if (!userItem || !storedItem) {
+        sendChatMessage(
+            `@${username}, you don't have an item in the ${itemSlot} slot or your backpack is empty.`
+        );
+        return;
+    }
+
+    // Make sure the item in the backpack is the same type as the item being transferred
+    if (userItem.itemType !== storedItem.itemType) {
+        sendChatMessage(
+            `@${username}, the item you're transferring upgrades from is not the same type of item in your backpack.`
+        );
+        return;
+    }
+
+    if (characterCurrencyTotal < transferCost) {
+        sendChatMessage(
+            `@${username}, you don't have enough ${currencyName} to transfer upgrades.`
+        );
+        return;
+    }
+
+    // Randomize possible stat loss and apply.
+    const reinforcePoints = applyTransferLoss(userItem.refinements);
+    await transferReinforcements(
+        username,
+        storedItem,
+        reinforcePoints.reinforcements
+    );
+
+    // Make user pay.
+    await adjustCurrencyForUser(transferCost, username);
+
+    // If user lost stats, let them know.
+    if (reinforcePoints.statLoss) {
+        sendChatMessage(
+            `@${username}, the blacksmith couldn't make the new item as good as the old one. Remember to equip it!`
+        );
+        return;
+    }
+
+    // Otherwise, report the success.
+    sendChatMessage(
+        `@${username}, the blacksmith successfully transferred the upgrades to the new item. Remember to equip it!`
+    );
+}
+
 /**
  * The blacksmith allows users to upgrade an item.
  * @param userCommand
@@ -131,6 +201,20 @@ export async function rpgBlacksmithCommand(userCommand: UserCommand) {
         case 'offHand':
         case 'off':
             await shopReinforceItem(userCommand, 'offHand');
+            break;
+        case 'transferarmor':
+        case 'tarmor':
+            await shopTransferReinforcement(userCommand, 'armor');
+            break;
+        case 'transfermainhand':
+        case 'transfermain':
+        case 'tmain':
+            await shopTransferReinforcement(userCommand, 'mainHand');
+            break;
+        case 'transferoffhand':
+        case 'transferoff':
+        case 'toff':
+            await shopTransferReinforcement(userCommand, 'offHand');
             break;
         default:
             sendChatMessage(
