@@ -1,4 +1,4 @@
-import { UserCommand } from '@crowbartools/firebot-custom-scripts-types/types/modules/command-manager';
+import { UserCommand } from '../../types/firebot';
 import { getCompleteCharacterData } from '../../systems/characters/characters';
 import { getFullItemName, getItemByID } from '../../systems/equipment/helpers';
 import { getUserData, getUserName } from '../../systems/user/user';
