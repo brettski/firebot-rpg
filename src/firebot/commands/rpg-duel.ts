@@ -1,4 +1,4 @@
-import { UserCommand } from '@crowbartools/firebot-custom-scripts-types/types/modules/command-manager';
+import { UserCommand } from '../../types/firebot';
 import { isDuelExpired, startDuel } from '../../systems/duels/duels';
 
 import { getUserData, getUserName } from '../../systems/user/user';

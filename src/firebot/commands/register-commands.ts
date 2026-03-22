@@ -181,6 +181,7 @@ export function registerCommands() {
             sortTags: ['rpg'],
             effects: {
                 list: [],
+                id: '',
             },
             restrictionData: {
                 mode: 'any',

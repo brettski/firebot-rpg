@@ -1,4 +1,4 @@
-import { UserCommand } from '@crowbartools/firebot-custom-scripts-types/types/modules/command-manager';
+import { UserCommand } from '../../types/firebot';
 import { getUserName } from '../../systems/user/user';
 import { logger, sendChatMessage, setCharacterMeta } from '../firebot';
 
