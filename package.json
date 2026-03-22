@@ -13,7 +13,7 @@
     "author": "Firebottle",
     "license": "GNU3",
     "dependencies": {
-        "@crowbartools/firebot-custom-scripts-types": "https://github.com/crowbartools/firebot-custom-scripts-types/tarball/b9a5fe88f22017d0fdb37358ec9e73283a88e6ba",
+        "@crowbartools/firebot-custom-scripts-types": "^5.65.1",
         "@dice-roller/rpg-dice-roller": "^5.1.0"
     },
     "devDependencies": {
