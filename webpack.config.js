@@ -10,6 +10,8 @@ module.exports = {
         main: './src/main.ts',
     },
     output: {
+        clean: true,
+        compareBeforeEmit: false,
         libraryTarget: 'commonjs2',
         libraryExport: 'default',
         path: path.resolve(__dirname, './dist'),

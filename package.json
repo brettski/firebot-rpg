@@ -1,14 +1,14 @@
 {
     "name": "firebot-custom-script-starter",
     "scriptOutputName": "Firebot-RPG",
-    "version": "1.1.1",
+    "version": "1.1.0-rc3",
     "description": "A starter Firebot custom script",
     "main": "",
     "scripts": {
         "build": "webpack",
         "build:dev": "npm run build && npm run copy",
         "copy": "node ./scripts/copy-build.js",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "author": "Firebottle",
     "license": "GNU3",
@@ -25,7 +25,7 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-prettier": "^5.5.5",
         "eslint-plugin-unused-imports": "^4.4.1",
-        "husky": "^8.0.3",
+        "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "prettier": "^3.8.1",
         "terser-webpack-plugin": "^5.4.0",
