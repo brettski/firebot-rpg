@@ -1,5 +1,18 @@
 import { CharacterClass } from '../types/equipment';
 
+/**
+ * NOT DEAD CODE. Do not delete this list because it looks unreferenced.
+ *
+ * These classes are live: monsters roll one via monster-generation.ts, and every
+ * character has one applied to their stats in characters.ts (getAdjustedCharacterStat).
+ *
+ * Players, however, can only ever be class id 1 (Adventurer) because no job in
+ * data/jobs.ts awards `itemType: 'characterClass'`, and job loot is the only way an
+ * item reaches a player's backpack. That makes 76 of these 77 entries unreachable by
+ * players, and makes equipClass() in rpg-equip.ts unreachable code.
+ *
+ * Tracked in https://github.com/brettski/firebot-rpg/issues/10 (blocked by #5).
+ */
 export const classList: CharacterClass[] = [
     {
         id: 1,
