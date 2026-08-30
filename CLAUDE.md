@@ -126,3 +126,11 @@ reset, how much loot a change should award. Those leave no trace in the code the
   whether it is durable enough to warrant a file.
 - **Do not log** anything the code states plainly, anything already captured in an issue, or
   routine implementation choices (naming, file placement, obvious refactors).
+
+## Verification Policy
+
+- Verify load-bearing claims — specific counts, file:line references, and assertions about what code does or how it behaves — against the actual code, docs, or command output before stating them; don't answer from memory alone when a tool can confirm it. Qualitative language ("small fix," "roughly") doesn't need the same rigor, but don't dress an unverified guess in a number that makes it sound checked.
+- If something cannot be verified, say so directly ("I don't know" / "couldn't confirm this") instead of filling the gap with a plausible guess.
+- Do not extrapolate beyond what the evidence supports. If the evidence only supports a narrower claim, state the narrower claim.
+- Distinguish what was directly verified (read in code, confirmed by running a command) from what is inferred. Label inferences as inferences.
+- Do not add confidence, framing, or detail beyond what was actually checked.
