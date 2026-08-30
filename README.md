@@ -26,4 +26,4 @@ Please check out brettski's [wiki here](https://github.com/brettski/firebot-rpg/
 
 ## Development
 
-The script is witten in Typescript and the packages are compatible with Node v24 (the current LTS). Some packages would not run under Node v26 while it's the latest Node version.
+The script is witten in Typescript and the packages are compatible with Node v26 (the next LTS).
