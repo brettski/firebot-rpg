@@ -110,3 +110,19 @@ code, because it makes working code look broken and unused code look live:
   bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every player is
   permanently class id 1 and `equipClass()` in `rpg-equip.ts` is unreachable code. Do not "clean up"
   either as dead. Tracked in issue #10.
+
+## Decisions
+
+Design decisions specific to this codebase are recorded in `docs/decisions/`, one markdown
+file per decision. See `docs/decisions/README.md` for the format.
+
+Log a decision when the *reasoning* would not survive anywhere else — not in the code, not
+in a GitHub issue, not in a commit message. Balance and gameplay choices are the main case
+here: which job tiers a guild level unlocks, whether a fix warrants a `resetId` season
+reset, how much loot a change should award. Those leave no trace in the code they produce.
+
+- **Log it without asking** when the choice is settled and the reasoning is already clear.
+- **Ask "Should I log this decision?"** when it is unclear whether the choice is final, or
+  whether it is durable enough to warrant a file.
+- **Do not log** anything the code states plainly, anything already captured in an issue, or
+  routine implementation choices (naming, file placement, obvious refactors).
