@@ -7,6 +7,8 @@
     "scripts": {
         "build": "webpack",
         "build:dev": "npm run build && npm run copy",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
         "copy": "node ./scripts/copy-build.js",
         "prepare": "husky"
     },
@@ -14,25 +16,24 @@
     "license": "GNU3",
     "dependencies": {
         "@crowbartools/firebot-custom-scripts-types": "^5.65.1",
-        "@dice-roller/rpg-dice-roller": "^5.1.0"
+        "@dice-roller/rpg-dice-roller": "^5.5.1"
     },
     "devDependencies": {
-        "@types/node": "^24.12.0",
-        "@typescript-eslint/eslint-plugin": "^8.57.2",
-        "@typescript-eslint/parser": "^8.57.2",
-        "eslint": "^9.39.4",
+        "@types/node": "^26.4.1",
+        "@typescript-eslint/eslint-plugin": "^8.69.0",
+        "@typescript-eslint/parser": "^8.69.0",
+        "eslint": "^10.9.1",
         "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-import": "^2.25.4",
-        "eslint-plugin-prettier": "^5.5.5",
+        "eslint-plugin-import-x": "^4.17.1",
+        "eslint-plugin-prettier": "^5.5.6",
         "eslint-plugin-unused-imports": "^4.4.1",
         "husky": "^9.1.7",
-        "lint-staged": "^16.4.0",
-        "prettier": "^3.8.1",
-        "terser-webpack-plugin": "^5.4.0",
-        "ts-jest": "^29.4.6",
-        "ts-loader": "^9.5.4",
+        "lint-staged": "^17.4.1", 
+        "prettier": "^3.9.6",
+        "terser-webpack-plugin": "^5.6.1",
+        "ts-loader": "^9.6.2",
         "typescript": "^5.9.3",
-        "webpack": "^5.105.4",
-        "webpack-cli": "^7.0.2"
+        "webpack": "^5.110.3",
+        "webpack-cli": "^7.2.3"
     }
 }

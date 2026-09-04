@@ -1,7 +1,7 @@
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
-import importPlugin from "eslint-plugin-import";
+import { importX } from "eslint-plugin-import-x";
 import unusedImports from "eslint-plugin-unused-imports";
 
 export default [
@@ -11,16 +11,11 @@ export default [
     {
         plugins: {
             "@typescript-eslint": tsPlugin,
-            import: importPlugin,
+            "import-x": importX,
             "unused-imports": unusedImports,
         },
         languageOptions: {
             parser: tsParser,
-        },
-        rules: {
-            "import/no-unresolved": "off",
-            "import/extensions": "off",
-            "import/prefer-default-export": "off",
         },
     },
     prettierRecommended,
@@ -37,7 +32,7 @@ export default [
             },
         },
         rules: {
-            "import/order": [
+            "import-x/order": [
                 "error",
                 {
                     groups: ["builtin", "external", "internal"],
@@ -49,7 +44,6 @@ export default [
                 },
             ],
             "@typescript-eslint/comma-dangle": "off",
-            "import/prefer-default-export": "off",
             "class-methods-use-this": "off",
             "react/jsx-filename-extension": "off",
             "no-restricted-syntax": "off",
