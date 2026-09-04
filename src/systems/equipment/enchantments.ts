@@ -30,6 +30,7 @@ import {
     rollDice,
     sumOfObjectProperties,
 } from '../utils';
+
 import { mergeEnchantments } from './helpers';
 
 /**
@@ -249,7 +250,6 @@ export async function getElementalDamageOfAttack(
         return 0;
     }
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const [enchantment] of Object.entries(mergedEnchantments)) {
         // Get attacker offenses.
         const totalAttackerValue =
@@ -299,9 +299,7 @@ export async function increaseEnchantmentOfUserItem(
 
     // Then, get the item from that slot.
     const item = userdata[slot as EnchantableSlots] as
-        | StoredArmor
-        | StoredWeapon
-        | StoredShield;
+        StoredArmor | StoredWeapon | StoredShield;
     if (item == null) {
         return;
     }

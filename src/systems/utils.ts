@@ -13,7 +13,6 @@ export function sumOfObjectProperties(obj: { [x: string]: any }) {
 
 export function addOrSubtractRandomPercentage(num: number) {
     if (Number.isNaN(num)) {
-        // eslint-disable-next-line no-param-reassign
         num = 1;
     }
     const posOrNeg = Math.random() < 0.5 ? -1 : 1;

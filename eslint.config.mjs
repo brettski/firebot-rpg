@@ -25,7 +25,7 @@ export default [
         },
     },
     {
-        files: ["**/src/*.ts", "**/src/*.tsx"],
+        files: ["**/src/**/*.ts", "**/src/**/*.tsx"],
         languageOptions: {
             parserOptions: {
                 project: "./tsconfig.json",
@@ -35,7 +35,7 @@ export default [
             "import-x/order": [
                 "error",
                 {
-                    groups: ["builtin", "external", "internal"],
+                    groups: ["builtin", "external", "internal", "parent", "sibling"],
                     "newlines-between": "always",
                     alphabetize: {
                         order: "asc",

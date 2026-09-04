@@ -1,4 +1,3 @@
-import { UserCommand } from '../../types/firebot';
 import {
     getTrainingBaseCost,
     getTrainingCostMultiplier,
@@ -6,6 +5,7 @@ import {
 } from '../../systems/settings';
 import { calculateShopCost } from '../../systems/shops/shops';
 import { getUserName, getUserData, setUserStat } from '../../systems/user/user';
+import { UserCommand } from '../../types/firebot';
 import { CharacterStatNames } from '../../types/user';
 import {
     getWorldMeta,

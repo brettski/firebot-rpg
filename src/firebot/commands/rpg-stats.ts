@@ -1,12 +1,11 @@
-import { UserCommand } from '../../types/firebot';
 import {
     getAdjustedCharacterStat,
     getCharacterTotalAC,
     getCompleteCharacterData,
 } from '../../systems/characters/characters';
 import { getFullItemTextWithStats } from '../../systems/equipment/helpers';
-
 import { getUserData, getUserName } from '../../systems/user/user';
+import { UserCommand } from '../../types/firebot';
 import { logger, sendChatMessage } from '../firebot';
 
 export async function rpgStatsCommand(userCommand: UserCommand) {

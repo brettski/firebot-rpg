@@ -5,6 +5,7 @@ import {
     StoredCharacterClass,
 } from '../../types/equipment';
 import { filterArrayByProperty } from '../utils';
+
 import { getWeightedRarity } from './helpers';
 
 /**

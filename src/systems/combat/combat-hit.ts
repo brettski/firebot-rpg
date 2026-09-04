@@ -12,6 +12,7 @@ import {
     getRangedInMeleeChanceSettings,
 } from '../settings';
 import { rollDice } from '../utils';
+
 import { didCharacterCastSuccessfully } from './magic';
 
 /**

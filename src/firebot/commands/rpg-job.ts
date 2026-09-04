@@ -1,4 +1,3 @@
-import { UserCommand } from '../../types/firebot';
 import { jobList } from '../../data/jobs';
 import { getCompleteCharacterData } from '../../systems/characters/characters';
 import { startCombat } from '../../systems/combat/combat';
@@ -29,6 +28,7 @@ import {
 } from '../../systems/utils';
 import { updateWorldTendency } from '../../systems/world/world-tendency';
 import { StorableItems } from '../../types/equipment';
+import { UserCommand } from '../../types/firebot';
 import { Job, JobTemplateReplacements } from '../../types/jobs';
 import { GeneratedMonster } from '../../types/monsters';
 import { CompleteCharacter } from '../../types/user';

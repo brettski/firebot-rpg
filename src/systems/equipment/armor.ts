@@ -11,6 +11,7 @@ import {
     getArmorMovementSpeedSettings,
 } from '../settings';
 import { addOrSubtractRandomPercentage, filterArrayByProperty } from '../utils';
+
 import {
     generateEnchantmentList,
     getUserArmorEnchantmentCount,

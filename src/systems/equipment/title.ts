@@ -1,6 +1,7 @@
 import { titleList } from '../../data/titles';
 import { Rarity, StoredTitle, Title } from '../../types/equipment';
 import { filterArrayByProperty } from '../utils';
+
 import { getWeightedRarity } from './helpers';
 
 export function getTitleFilteredByRarity(rarity: Rarity[]): Title {

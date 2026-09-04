@@ -5,6 +5,7 @@ import {
 
 import { verifyUser } from '../../systems/user/user';
 import { registerSystemCommand, sendChatMessage } from '../firebot';
+
 import { rpgBlacksmithCommand } from './rpg-blacksmith';
 import { rpgDuelCommand } from './rpg-duel';
 import { rpgEnchanterCommand } from './rpg-enchanter';
@@ -255,7 +256,7 @@ export function registerCommands() {
                     rpgGuideCommand(userCommand);
                     break;
                 }
-                // eslint-disable-next-line no-empty
+
                 default: {
                 }
             }

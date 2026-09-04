@@ -1,8 +1,8 @@
-import { UserCommand } from '../../types/firebot';
 import { getCompleteCharacterData } from '../../systems/characters/characters';
 import { getFullItemName, getItemByID } from '../../systems/equipment/helpers';
 import { getUserData, getUserName } from '../../systems/user/user';
 import { Shield, Spell, Weapon } from '../../types/equipment';
+import { UserCommand } from '../../types/firebot';
 import { logger, sendChatMessage, setCharacterMeta } from '../firebot';
 
 async function isBackpackEmpty(username: string) {

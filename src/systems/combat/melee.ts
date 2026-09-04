@@ -1,6 +1,7 @@
 import { logger } from '../../firebot/firebot';
 import { Weapon, Shield, Spell } from '../../types/equipment';
 import { CompleteCharacter } from '../../types/user';
+
 import { calculateDamage, initiative } from './combat';
 import { didCharacterHitMelee } from './combat-hit';
 
@@ -87,10 +88,8 @@ async function combatRound(
 
     logger('debug', `Turn order: ${turnOrder[0].name}, ${turnOrder[1].name}.`);
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const character of turnOrder) {
         if (character === characterOne) {
-            // eslint-disable-next-line no-await-in-loop
             healthResults.two = await attackCharacter(
                 characterOne,
                 characterTwo,
@@ -104,7 +103,6 @@ async function combatRound(
         }
 
         if (character === characterTwo) {
-            // eslint-disable-next-line no-await-in-loop
             healthResults.one = await attackCharacter(
                 characterTwo,
                 characterOne,
@@ -142,7 +140,6 @@ export async function meleePhase(
 
     // Here we're doing combat rounds until the death.
     while (characterOneTemp.currentHP > 0 && characterTwoTemp.currentHP > 0) {
-        // eslint-disable-next-line no-await-in-loop
         roundStats = await combatRound(
             characterOneTemp,
             characterTwoTemp,

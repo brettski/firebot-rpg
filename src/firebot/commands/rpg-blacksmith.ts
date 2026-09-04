@@ -1,4 +1,3 @@
-import { UserCommand } from '../../types/firebot';
 import { increaseRefinementLevelOfUserItem } from '../../systems/equipment/refinements';
 import {
     getRefinementBaseCost,
@@ -13,6 +12,7 @@ import {
     StoredSpell,
     StoredWeapon,
 } from '../../types/equipment';
+import { UserCommand } from '../../types/firebot';
 import { EquippableSlots } from '../../types/user';
 import {
     getWorldMeta,
@@ -34,10 +34,7 @@ async function shopReinforceItem(
     const statLimit = blacksmith * getRefinementLevelLimit();
     const userdata = await getUserData(username);
     const item = userdata[itemSlot] as
-        | StoredWeapon
-        | StoredArmor
-        | StoredShield
-        | StoredSpell;
+        StoredWeapon | StoredArmor | StoredShield | StoredSpell;
     const currencyName = getCurrencyName();
     const characterCurrencyTotal = await getUserCurrencyTotal(username);
     let currentRefinements = 1;

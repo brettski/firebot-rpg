@@ -1,11 +1,10 @@
-import { UserCommand } from '../../types/firebot';
-
 import {
     getCharacterMeta as getUserMeta,
     logger,
     setCharacterMeta as setUserMeta,
 } from '../../firebot/firebot';
 import { StorableItems } from '../../types/equipment';
+import { UserCommand } from '../../types/firebot';
 import {
     Character,
     CharacterStatNames,

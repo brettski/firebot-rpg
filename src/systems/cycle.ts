@@ -1,4 +1,5 @@
 import { logger } from '../firebot/firebot';
+
 import { getWorldCycleTimeSettings } from './settings';
 import { worldCycle } from './world/world-cycle';
 

@@ -6,6 +6,7 @@ import {
 } from '../../types/world';
 import { getWorldCitizens, getWorldName, getWorldType } from '../settings';
 import { capitalize } from '../utils';
+
 import {
     getWorldBuildings,
     setWorldStat,

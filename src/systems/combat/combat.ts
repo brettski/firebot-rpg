@@ -9,6 +9,7 @@ import {
 import { getCharacterDamageBonus } from '../characters/characters';
 import { getElementalDamageOfAttack } from '../equipment/enchantments';
 import { rollDice } from '../utils';
+
 import { approachPhase } from './approach';
 import { meleePhase } from './melee';
 

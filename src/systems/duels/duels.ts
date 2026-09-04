@@ -21,9 +21,8 @@ export async function startDuel(attacker: string, defender: string) {
     const defendingCharacter = await getUserData(defender);
 
     const completePlayer = await getCompleteCharacterData(attackingCharacter);
-    const completePlayerTwo = await getCompleteCharacterData(
-        defendingCharacter
-    );
+    const completePlayerTwo =
+        await getCompleteCharacterData(defendingCharacter);
 
     const results = await startCombat(completePlayer, completePlayerTwo);
     return results;
