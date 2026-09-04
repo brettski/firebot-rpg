@@ -16,7 +16,7 @@
     "license": "GNU3",
     "dependencies": {
         "@crowbartools/firebot-custom-scripts-types": "^5.65.1",
-        "@dice-roller/rpg-dice-roller": "^5.1.0"
+        "@dice-roller/rpg-dice-roller": "^5.5.1"
     },
     "devDependencies": {
         "@types/node": "^26.4.1",
