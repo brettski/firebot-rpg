@@ -1,5 +1,6 @@
 import { ItemTypes, Rarity } from '../types/equipment';
 import { TendencyStat } from '../types/world';
+
 import { MonsterDifficulties } from './monsters';
 
 export type JobChallengeRatings = 'easy' | 'medium' | 'hard' | 'legendary';

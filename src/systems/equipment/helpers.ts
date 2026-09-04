@@ -20,6 +20,7 @@ import {
 } from '../../types/equipment';
 import { CompleteCharacter, EquippableSlots } from '../../types/user';
 import { getItemFromItemListById } from '../utils';
+
 import { getArcaneFailureChance } from './armor';
 import {
     getEnchantmentName,
@@ -70,12 +71,10 @@ export function getWeightedRarity(rarity: Rarity[]) {
 
     let i;
 
-    // eslint-disable-next-line no-plusplus, no-param-reassign
     for (i = 0; i < weights.length; i++) weights[i] += weights[i - 1] || 0;
 
     const random = Math.random() * weights[weights.length - 1];
 
-    // eslint-disable-next-line no-plusplus
     for (i = 0; i < weights.length; i++) if (weights[i] > random) break;
 
     return rarity[i];

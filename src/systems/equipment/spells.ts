@@ -1,6 +1,7 @@
 import { spellList } from '../../data/spells';
 import { Rarity, Spell, StoredSpell } from '../../types/equipment';
 import { addOrSubtractRandomPercentage, filterArrayByProperty } from '../utils';
+
 import {
     getUserHandItemEnchantmentCount,
     generateEnchantmentList,
@@ -38,9 +39,8 @@ export async function generateSpellForUser(
     username: string,
     rarity: Rarity[]
 ): Promise<StoredSpell> {
-    const userEnchantmentValues = await getUserHandItemEnchantmentCount(
-        username
-    );
+    const userEnchantmentValues =
+        await getUserHandItemEnchantmentCount(username);
     const userRefinementValues = await getUserHandItemRefinementCount(username);
 
     const baseEnchantmentValue = Math.max(

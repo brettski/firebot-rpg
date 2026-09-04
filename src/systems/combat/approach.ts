@@ -4,6 +4,7 @@ import { CompleteCharacter } from '../../types/user';
 import { getCharacterWeaponRange } from '../characters/characters';
 import { getArmorMovementSpeed } from '../equipment/armor';
 import { getItemByID } from '../equipment/helpers';
+
 import { calculateDamage, initiative } from './combat';
 import { didCharacterHitRanged } from './combat-hit';
 
@@ -104,10 +105,8 @@ async function rangedCombatRound(
         `Turn order: ${turnOrder[0].name}, ${turnOrder[1].name}. Round: ${roundCounter}.`
     );
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const character of turnOrder) {
         if (character === characterOne) {
-            // eslint-disable-next-line no-await-in-loop
             healthResults.two = await rangedAttack(
                 characterOne,
                 characterTwo,
@@ -120,7 +119,6 @@ async function rangedCombatRound(
                 return healthResults;
             }
         } else if (character === characterTwo) {
-            // eslint-disable-next-line no-await-in-loop
             healthResults.one = await rangedAttack(
                 characterTwo,
                 characterOne,
@@ -260,7 +258,7 @@ async function shootoutCombat(
     let roundCounter = 1;
     while (characterOneTemp.currentHP > 0 && characterTwoTemp.currentHP > 0) {
         // Start shootout. Always pass distance of 1 and never change it. All ammunition weapons have this range.
-        // eslint-disable-next-line no-await-in-loop
+
         roundStats = await rangedCombatRound(
             characterOneTemp,
             characterTwoTemp,
@@ -318,7 +316,6 @@ async function approachCombat(
         characterTwoTemp.currentHP > 0 &&
         currentDistance > 0
     ) {
-        // eslint-disable-next-line no-await-in-loop
         roundStats = await rangedCombatRound(
             characterOneTemp,
             characterTwoTemp,

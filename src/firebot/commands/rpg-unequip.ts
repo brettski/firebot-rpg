@@ -1,5 +1,5 @@
-import { UserCommand } from '../../types/firebot';
 import { getUserName } from '../../systems/user/user';
+import { UserCommand } from '../../types/firebot';
 import { EquippableSlots } from '../../types/user';
 import { logger, sendChatMessage, setCharacterMeta } from '../firebot';
 

@@ -1,6 +1,7 @@
 import { shieldList } from '../../data/shields';
 import { Rarity, Shield, StoredShield } from '../../types/equipment';
 import { addOrSubtractRandomPercentage, filterArrayByProperty } from '../utils';
+
 import {
     getUserHandItemEnchantmentCount,
     generateEnchantmentList,
@@ -40,9 +41,8 @@ export async function generateShieldForUser(
     username: string,
     rarity: Rarity[]
 ): Promise<StoredShield> {
-    const userEnchantmentValues = await getUserHandItemEnchantmentCount(
-        username
-    );
+    const userEnchantmentValues =
+        await getUserHandItemEnchantmentCount(username);
     const userRefinementValues = await getUserHandItemRefinementCount(username);
 
     const baseEnchantmentValue = Math.max(

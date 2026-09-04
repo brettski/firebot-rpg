@@ -16,12 +16,7 @@ import {
 } from './equipment';
 
 export type EquippableSlots =
-    | 'backpack'
-    | 'armor'
-    | 'mainHand'
-    | 'offHand'
-    | 'characterClass'
-    | 'title';
+    'backpack' | 'armor' | 'mainHand' | 'offHand' | 'characterClass' | 'title';
 
 export type EnchantableSlots = 'armor' | 'mainHand' | 'offHand';
 

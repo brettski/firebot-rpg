@@ -49,7 +49,6 @@ export function updateWorldTendency(stat: WorldTendencyTypes, value: number) {
 export function clearWorldTendency() {
     logger('debug', "Clearing this cycle's world stat pool.");
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const stat of Object.keys(worldTendencyPools)) {
         if (stat != null) {
             worldTendencyPools[stat as keyof WorldTendency].positive = 0;

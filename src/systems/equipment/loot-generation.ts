@@ -1,4 +1,5 @@
 import { ItemTypes, Rarity, StorableItems } from '../../types/equipment';
+
 import { generateArmorForUser } from './armor';
 import { generateClass } from './character-class';
 import { generateShieldForUser } from './shields';

@@ -1,5 +1,5 @@
-import { UserCommand } from '../../types/firebot';
 import { getUserName } from '../../systems/user/user';
+import { UserCommand } from '../../types/firebot';
 import { logger, sendChatMessage, setCharacterMeta } from '../firebot';
 
 export async function rpgNameCommand(userCommand: UserCommand) {

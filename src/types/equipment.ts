@@ -1,12 +1,7 @@
 export type Rarity = 'basic' | 'rare' | 'epic' | 'legendary';
 
 export type ItemTypes =
-    | 'weapon'
-    | 'armor'
-    | 'characterClass'
-    | 'title'
-    | 'shield'
-    | 'spell';
+    'weapon' | 'armor' | 'characterClass' | 'title' | 'shield' | 'spell';
 
 export type WeaponProperties =
     | 'two-handed'
@@ -23,12 +18,7 @@ export type WeaponDamageTypes = 'piercing' | 'bludgeoning' | 'slashing';
 export type ArmorProperties = 'heavy' | 'medium' | 'light';
 
 export type EnchantmentTypes =
-    | 'earth'
-    | 'wind'
-    | 'fire'
-    | 'water'
-    | 'light'
-    | 'darkness';
+    'earth' | 'wind' | 'fire' | 'water' | 'light' | 'darkness';
 
 export type Enchantments = {
     earth: number;
@@ -163,12 +153,7 @@ export type StoredCharacterClass = {
 };
 
 export type EquippableItemsDetails =
-    | Weapon
-    | Armor
-    | Title
-    | CharacterClass
-    | Shield
-    | Spell;
+    Weapon | Armor | Title | CharacterClass | Shield | Spell;
 
 export type StorableItems =
     | StoredArmor

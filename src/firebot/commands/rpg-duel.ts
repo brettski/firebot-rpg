@@ -1,7 +1,6 @@
-import { UserCommand } from '../../types/firebot';
 import { isDuelExpired, startDuel } from '../../systems/duels/duels';
-
 import { getUserData, getUserName } from '../../systems/user/user';
+import { UserCommand } from '../../types/firebot';
 import { Duel } from '../../types/user';
 import { logger, sendChatMessage, setCharacterMeta } from '../firebot';
 

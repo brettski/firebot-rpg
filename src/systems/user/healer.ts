@@ -1,10 +1,11 @@
-import { calculateShopCost } from '../shops/shops';
-import { getUserData, getUserName, setUserCurrentHP } from './user';
 import {
     getCurrencyName,
     getUserCurrencyTotal,
     adjustCurrencyForUser,
 } from '../../firebot/firebot';
+import { calculateShopCost } from '../shops/shops';
+
+import { getUserData, getUserName, setUserCurrentHP } from './user';
 
 /**
  * Heals the player to full, as long as they have the money.

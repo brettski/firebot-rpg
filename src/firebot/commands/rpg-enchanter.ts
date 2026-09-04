@@ -1,4 +1,3 @@
-import { UserCommand } from '../../types/firebot';
 import { increaseEnchantmentOfUserItem } from '../../systems/equipment/enchantments';
 import {
     getEnchantmentBaseCost,
@@ -9,6 +8,7 @@ import { calculateShopCost } from '../../systems/shops/shops';
 import { getUserName, getUserData } from '../../systems/user/user';
 import { capitalize } from '../../systems/utils';
 import { EnchantmentTypes } from '../../types/equipment';
+import { UserCommand } from '../../types/firebot';
 import { EnchantableSlots } from '../../types/user';
 import {
     getWorldMeta,
