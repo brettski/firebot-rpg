@@ -12,8 +12,8 @@
         "copy": "node ./scripts/copy-build.js",
         "prepare": "husky"
     },
-    "author": "Firebottle",
-    "license": "GNU3",
+    "author": "Firebottle (v1), brettski (v1.1+)",
+    "license": "GPL-3.0-only",
     "dependencies": {
         "@crowbartools/firebot-custom-scripts-types": "^5.65.1",
         "@dice-roller/rpg-dice-roller": "^5.5.1"

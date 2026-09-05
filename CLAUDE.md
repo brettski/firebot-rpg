@@ -9,7 +9,7 @@ application — it only runs loaded inside Firebot, driven by chat commands (`!r
 runtime (`RunRequest`) for chat, currency, user metadata, and settings storage. There is no server, no
 database of its own, and no UI beyond Firebot's game-settings panel and chat messages.
 
-This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle"), continued by Brett Slaski.
+This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), continued by Brett Slaski (v1.1+).
 
 ## Commands
 
