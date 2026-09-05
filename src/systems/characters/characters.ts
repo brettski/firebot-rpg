@@ -221,7 +221,7 @@ export async function getCharacterHitBonus(
 
     // Now, adjust for item properties.
     if (item.properties.includes('versatile')) {
-        return Math.floor(Math.max(str, dex)) + item.refinements;
+        return Math.floor(Math.max(str, dex) / toHitDivider) + item.refinements;
     }
 
     if (
