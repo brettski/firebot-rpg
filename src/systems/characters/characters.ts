@@ -366,7 +366,7 @@ export async function getCompleteCharacterData(
             characterData.backpack.itemType
         ) as EquippableItemsDetails;
     } else {
-        characterData.backpack = null;
+        characterData.backpackData = null;
     }
 
     return characterData;
