@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Wiki
+    url: https://github.com/brettski/firebot-rpg/wiki
+    about: Check the wiki before filing a documentation or support issue

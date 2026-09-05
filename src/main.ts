@@ -8,7 +8,7 @@ const script: Firebot.CustomScript<{}> = {
         return {
             name: 'Firebot RPG',
             description: 'A chat based RPG.',
-            author: 'Firebottle',
+            author: 'Firebottle (v1), brettski (v1.1+)',
             version: '1.1',
             firebotVersion: '5',
         };

@@ -8,9 +8,9 @@ The version is forked by Brett Slaski from [https://github.com/itsjesski/firebot
 
 ## Grab the latest release
 
-You can download itsjesski's last version from [release](https://github.com/Firebottle/firebot-rpg/releases/latest).
+You can download itsjesski's last version from [release](https://github.com/Firebottle/firebot-rpg/releases/latest) (v1).
 
-You can dowload brettski's latest version from [releases](https://github.com/brettski/firebot-rpg/releases)
+You can dowload brettski's latest version from [releases](https://github.com/brettski/firebot-rpg/releases) (v1.1+).
 
 ## Report Issues
 
@@ -20,9 +20,9 @@ You can report any issues or make recommendations at the [issue tracker](https:/
 
 If you have any questions about anything related to this RPG.
 
-Please check out itsjesski's [wiki](https://github.com/Firebottle/firebot-rpg/wiki).
-
 Please check out brettski's [wiki here](https://github.com/brettski/firebot-rpg/wiki).
+
+If you can't find the answer in the wiki, open an [issue](https://github.com/brettski/firebot-rpg/issues/new/choose) and ask there.
 
 ## Development
 
