@@ -65,7 +65,6 @@ export async function setWorldStat(
     setExactly?: boolean
 ) {
     const worldStats = await getWorldMeta();
-    let worldValue = 50;
 
     if (Number.isNaN(value)) {
         logger('error', `Trying to set ${stat} to invalid value, ${value}.`);
@@ -74,13 +73,13 @@ export async function setWorldStat(
 
     // This allows us to set a world stat to a specific number.
     if (setExactly) {
-        worldValue = Math.min(Math.max(value, 0), 100);
-        await updateWorldProperty(stat, value);
+        const worldValue = Math.min(Math.max(value, 0), 100);
+        await updateWorldProperty(stat, worldValue);
         return;
     }
 
     // Clamp our world stats to 0 and 100.
-    worldValue = Math.min(Math.max(worldStats[stat] + value, 0), 100);
+    const worldValue = Math.min(Math.max(worldStats[stat] + value, 0), 100);
 
     await updateWorldProperty(stat, worldValue);
 }
