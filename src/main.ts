@@ -9,7 +9,7 @@ const script: Firebot.CustomScript<{}> = {
             name: 'Firebot RPG',
             description: 'A chat based RPG.',
             author: 'Firebottle (v1), brettski (v1.1+)',
-            version: '1.1',
+            version: __SCRIPT_VERSION__,
             firebotVersion: '5',
         };
     },

@@ -1,8 +1,8 @@
 {
-    "name": "firebot-custom-script-starter",
+    "name": "firebot-rpg",
     "scriptOutputName": "Firebot-RPG",
     "version": "1.1.0-rc5",
-    "description": "A starter Firebot custom script",
+    "description": "Firebot RPG is a Twitch chat RPG game that runs in Crowbartool's Firebot application",
     "main": "",
     "scripts": {
         "build": "webpack",
