@@ -48,7 +48,7 @@ export interface CompleteCharacter extends Character {
     armorData: Armor | null;
     mainHandData: Weapon | Spell | null;
     offHandData: Weapon | Spell | Shield | null;
-    characterClassData: CharacterClass;
-    titleData: Title;
-    backpackData: EquippableItemsDetails;
+    characterClassData: CharacterClass | null;
+    titleData: Title | null;
+    backpackData: EquippableItemsDetails | null;
 }
