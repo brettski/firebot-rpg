@@ -17,6 +17,7 @@ import {
     EquippableSlots,
 } from '../../types/user';
 import { getArmorDexBonus } from '../equipment/armor';
+import { getMergedEnchantmentsOfItem } from '../equipment/enchantments';
 import { getItemByID } from '../equipment/helpers';
 import { getDamageBonusSettings, getHitBonusSettings } from '../settings';
 
@@ -129,26 +130,17 @@ export function getCharacterElementalDefense(
     roundCounter: number
 ) {
     let totalDefenderValue = 0;
-    let armor = null;
-    let shield = null;
 
     if (defender.armor != null) {
-        armor = defender.armorData as Armor;
+        totalDefenderValue += getMergedEnchantmentsOfItem(defender, 'armor')[
+            enchantment as keyof Enchantments
+        ];
     }
 
     if (defender.offHand != null && defender.offHand?.itemType === 'shield') {
-        shield = defender.offHandData as Shield;
-    }
-
-    if (armor != null) {
-        totalDefenderValue +=
-            defender.armor.enchantments[enchantment as keyof Enchantments] +
-            armor.enchantments[enchantment as keyof Enchantments];
-    }
-
-    if (shield != null) {
-        totalDefenderValue +=
-            shield.enchantments[enchantment as keyof Enchantments];
+        totalDefenderValue += getMergedEnchantmentsOfItem(defender, 'offHand')[
+            enchantment as keyof Enchantments
+        ];
     }
 
     const preDefenseDown = totalDefenderValue;
