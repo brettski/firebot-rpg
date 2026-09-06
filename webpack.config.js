@@ -24,6 +24,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             __SCRIPT_VERSION__: JSON.stringify(packageJson.version),
+            __SCRIPT_AUTHOR__: JSON.stringify(packageJson.author),
         }),
     ],
     module: {

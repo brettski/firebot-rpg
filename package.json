@@ -1,9 +1,10 @@
 {
     "name": "firebot-rpg",
-    "scriptOutputName": "Firebot-RPG",
     "version": "1.1.0-rc5",
     "description": "Firebot RPG is a Twitch chat RPG game that runs in Crowbartool's Firebot application",
+    "author": "Firebottle (v1), brettski (v1.1+)",
     "main": "",
+    "scriptOutputName": "Firebot-RPG",
     "scripts": {
         "build": "webpack",
         "build:dev": "npm run build && npm run copy",
@@ -13,7 +14,6 @@
         "validate": "npm run lint && npm run build",
         "prepare": "husky"
     },
-    "author": "Firebottle (v1), brettski (v1.1+)",
     "license": "GPL-3.0-only",
     "dependencies": {
         "@crowbartools/firebot-custom-scripts-types": "^5.65.1",

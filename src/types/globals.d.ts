@@ -3,3 +3,4 @@
  * from package.json. See webpack.config.js.
  */
 declare const __SCRIPT_VERSION__: string;
+declare const __SCRIPT_AUTHOR__: string;
