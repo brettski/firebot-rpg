@@ -99,18 +99,22 @@ spellcasting, `combat-hit.ts` hit/miss resolution. AC, elemental resistance, and
 degrade over combat rounds (see the `roundCounter`-based "defense wears down after round 10" logic in
 `characters/characters.ts`) — combat math functions take `roundCounter` as a parameter for this reason.
 
-Dice rolling uses `@dice-roller/rpg-dice-roller` via `rollDice()` in `systems/utils.ts`, with damage/dice
-strings like `"1d20 +2"` stored directly in the `src/data/*` tables.
+Dice rolling uses `@dice-roller/rpg-dice-roller` via `rollDice()` in `systems/utils.ts`. Dice strings in
+the `src/data/*` tables are always bare `NdN` (e.g. a weapon's `damage: '1d6'`); modifier strings like
+`1d20 +2` are never stored — combat code composes them at roll time from the relevant bonus (see
+`combat.ts` initiative and `combat-hit.ts` hit resolution).
 
 ## Known gaps
 
 Open bugs live in the GitHub issue tracker (`gh issue list`). One is worth knowing before you read the
 code, because it makes working code look broken and unused code look live:
 
-- **Player character classes are unreachable.** `src/data/classes.ts` is live (monsters use it, and class
-  bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every player is
-  permanently class id 1 and `equipClass()` in `rpg-equip.ts` is unreachable code. Do not "clean up"
-  either as dead. Tracked in issue #10.
+- **Player character classes are never awarded.** `src/data/classes.ts` is live (monsters use it, and
+  class bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every
+  player is permanently class id 1. `equipClass()` in `rpg-equip.ts` is wired up and reachable via
+  `!rpg equip class`, but always hits its "can't equip that item as a class" branch, because a
+  `characterClass` item can never reach a player's backpack. Do not "clean up" either as dead. Tracked in
+  issue #10.
 
 ## Decisions
 
