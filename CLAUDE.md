@@ -19,8 +19,8 @@ This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), contin
   folder for the currently logged-in profile (via `scripts/copy-build.js`; macOS/Windows/Linux app-data
   paths are auto-detected).
 - `npx eslint .` — lint (also runs automatically via husky pre-commit + lint-staged on staged
-  `*.{js,jsx,ts,tsx}` files, with `eslint --fix` then `eslint`). **Currently checks only `src/main.ts`** —
-  the config glob misses nested directories, so a clean lint run proves almost nothing. See issue #11.
+  `*.{js,jsx,ts,tsx}` files, with `eslint --fix` then `eslint`). Checks all of `src/`, nested
+  directories included.
 - `npx prettier --write .` — formatting (`*.json` is auto-formatted by lint-staged on commit).
 - `npx tsc --noEmit` — type-check without emitting (there is no separate `build:types` npm script).
   Reports ~49 pre-existing errors, all inside `node_modules/@dice-roller/rpg-dice-roller/types/`; zero
