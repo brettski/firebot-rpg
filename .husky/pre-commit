@@ -2,3 +2,5 @@
 # Disable concurent to run build-types after ESLint in lint-staged
 npx lint-staged --concurrent false
 npx lint-staged
+
+npm test
