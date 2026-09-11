@@ -31,7 +31,7 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
             // Make sure they gave a name.
             if (challenged == null) {
                 sendChatMessage(
-                    `@${username}, specify who you want to challenge. EX: !rpg duel challenge @Twitch_Username`
+                    `@${username}, specify who you want to challenge. Eg.: !rpg duel challenge @Twitch_Username`
                 );
                 return;
             }
@@ -40,7 +40,7 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
             challengedCharacter = await getUserData(challenged);
             if (challengedCharacter == null) {
                 sendChatMessage(
-                    `@${username}, user not found or they have no character.`
+                    `@${username}, that user is not found or they have no character.`
                 );
                 return;
             }
@@ -48,7 +48,7 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
             // Check to see if the challenged already has an ongoing duel request.
             if (!isDuelExpired(challengedCharacter.duel.time)) {
                 sendChatMessage(
-                    `@${username}, user has an ongoing duel request. Try again in a few minutes.`
+                    `@${username} already has an ongoing duel request. Try again in a few minutes.`
                 );
                 return;
             }
@@ -60,9 +60,9 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
 
             // Send our final message.
             sendChatMessage(
-                `@${username} & @${challenged}, ${characterName} has challenged ${await getUserName(
+                `@${username} & @${challenged}: ${characterName} has challenged ${await getUserName(
                     challenged
-                )} to a duel! They have 2 minutes to accept.`
+                )} to a duel! @${challenged} has 2 minutes to accept. Enter, "!rpg duel accept" to accept the challenge.`
             );
 
             break;
@@ -113,7 +113,7 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
             break;
         default:
             sendChatMessage(
-                `@${username}, specify if you want to challenge or accept. EX: !rpg duel challenge @Twitch_Username, !rpg duel accept`
+                `@${username}, specify if you want to challenge or accept. Eg.: "!rpg duel challenge @Twitch_Username", "!rpg duel accept"`
             );
     }
 }

@@ -191,6 +191,19 @@ const gameSettings: Record<string, SettingCategoryDefinition> = {
                     required: true,
                 },
             },
+            jobSpilloverChance: {
+                type: 'number',
+                title: 'Job Difficulty Spillover Chance',
+                description:
+                    'Percent chance a job from the next locked difficulty tier appears.',
+                tip: 'Set to 0 to gate job difficulty strictly by guild level.',
+                default: 5,
+                sortRank: 1,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
         },
     },
     shops: {

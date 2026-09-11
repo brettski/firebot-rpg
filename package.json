@@ -1,17 +1,22 @@
 {
     "name": "firebot-rpg",
-    "version": "1.1.0-rc5",
+    "version": "1.1.0-rc6",
     "description": "Firebot RPG is a Twitch chat RPG game that runs in Crowbartool's Firebot application",
     "author": "Firebottle (v1), brettski (v1.1+)",
     "main": "",
+    "engines": {
+        "node": "26"
+    },
     "scriptOutputName": "Firebot-RPG",
     "scripts": {
         "build": "webpack",
         "build:dev": "npm run build && npm run copy",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
+        "test": "jest",
+        "test:watch": "jest --watch",
         "copy": "node ./scripts/copy-build.js",
-        "validate": "npm run lint && npm run build",
+        "validate": "npm run lint && npm run test && npm run build",
         "prepare": "husky"
     },
     "license": "GPL-3.0-only",
@@ -20,7 +25,8 @@
         "@dice-roller/rpg-dice-roller": "5.5.0"
     },
     "devDependencies": {
-        "@types/node": "^26.4.1",
+        "@types/jest": "^30.0.0",
+        "@types/node": "^26.5.1",
         "@typescript-eslint/eslint-plugin": "^8.69.0",
         "@typescript-eslint/parser": "^8.69.0",
         "eslint": "^10.9.1",
@@ -29,9 +35,11 @@
         "eslint-plugin-prettier": "^5.5.6",
         "eslint-plugin-unused-imports": "^4.4.1",
         "husky": "^9.1.7",
+        "jest": "^30.5.1",
         "lint-staged": "^17.4.1",
         "prettier": "^3.9.6",
         "terser-webpack-plugin": "^5.6.1",
+        "ts-jest": "^29.4.12",
         "ts-loader": "^9.6.2",
         "typescript": "^5.9.3",
         "webpack": "^5.110.3",

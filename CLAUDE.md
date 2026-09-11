@@ -19,15 +19,16 @@ This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), contin
   folder for the currently logged-in profile (via `scripts/copy-build.js`; macOS/Windows/Linux app-data
   paths are auto-detected).
 - `npx eslint .` — lint (also runs automatically via husky pre-commit + lint-staged on staged
-  `*.{js,jsx,ts,tsx}` files, with `eslint --fix` then `eslint`). **Currently checks only `src/main.ts`** —
-  the config glob misses nested directories, so a clean lint run proves almost nothing. See issue #11.
+  `*.{js,jsx,ts,tsx}` files, with `eslint --fix` then `eslint`). Checks all of `src/`, nested
+  directories included.
 - `npx prettier --write .` — formatting (`*.json` is auto-formatted by lint-staged on commit).
 - `npx tsc --noEmit` — type-check without emitting (there is no separate `build:types` npm script).
   Reports ~49 pre-existing errors, all inside `node_modules/@dice-roller/rpg-dice-roller/types/`; zero
   originate in `src/`. Filter with `npx tsc --noEmit 2>&1 | grep '^src/'` to see only real errors.
 
-There is no test runner configured (no `test` script, no jest config, no `*.test.ts` files) despite
-`ts-jest` being a devDependency — don't assume a test suite exists.
+- `npm test` — runs the jest test suite (`jest.config.js`, `ts-jest` preset). Tests are co-located as
+  `src/**/*.test.ts` (e.g. `src/systems/jobs.test.ts`). `npm run test:watch` reruns on change. `validate`
+  runs lint, then test, then build.
 
 ## Architecture
 
@@ -98,18 +99,22 @@ spellcasting, `combat-hit.ts` hit/miss resolution. AC, elemental resistance, and
 degrade over combat rounds (see the `roundCounter`-based "defense wears down after round 10" logic in
 `characters/characters.ts`) — combat math functions take `roundCounter` as a parameter for this reason.
 
-Dice rolling uses `@dice-roller/rpg-dice-roller` via `rollDice()` in `systems/utils.ts`, with damage/dice
-strings like `"1d20 +2"` stored directly in the `src/data/*` tables.
+Dice rolling uses `@dice-roller/rpg-dice-roller` via `rollDice()` in `systems/utils.ts`. Dice strings in
+the `src/data/*` tables are always bare `NdN` (e.g. a weapon's `damage: '1d6'`); modifier strings like
+`1d20 +2` are never stored — combat code composes them at roll time from the relevant bonus (see
+`combat.ts` initiative and `combat-hit.ts` hit resolution).
 
 ## Known gaps
 
 Open bugs live in the GitHub issue tracker (`gh issue list`). One is worth knowing before you read the
 code, because it makes working code look broken and unused code look live:
 
-- **Player character classes are unreachable.** `src/data/classes.ts` is live (monsters use it, and class
-  bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every player is
-  permanently class id 1 and `equipClass()` in `rpg-equip.ts` is unreachable code. Do not "clean up"
-  either as dead. Tracked in issue #10.
+- **Player character classes are never awarded.** `src/data/classes.ts` is live (monsters use it, and
+  class bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every
+  player is permanently class id 1. `equipClass()` in `rpg-equip.ts` is wired up and reachable via
+  `!rpg equip class`, but always hits its "can't equip that item as a class" branch, because a
+  `characterClass` item can never reach a player's backpack. Do not "clean up" either as dead. Tracked in
+  issue #10.
 
 ## Decisions
 

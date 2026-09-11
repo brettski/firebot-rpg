@@ -1,4 +1,6 @@
 
-# Disable concurent to run build-types after ESLint in lint-staged
+# Concurrency disabled so tasks across file patterns (eslint on *.ts, prettier
+# on *.json) run in a predictable, non-interleaved order.
 npx lint-staged --concurrent false
-npx lint-staged
+
+npm test

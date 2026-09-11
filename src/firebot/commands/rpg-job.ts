@@ -1,4 +1,3 @@
-import { jobList } from '../../data/jobs';
 import { getCompleteCharacterData } from '../../systems/characters/characters';
 import { startCombat } from '../../systems/combat/combat';
 import {
@@ -6,10 +5,12 @@ import {
     getFullItemName,
 } from '../../systems/equipment/helpers';
 import { rpgLootGenerator } from '../../systems/equipment/loot-generation';
+import { selectJobForGuildLevel } from '../../systems/jobs';
 import { generateMonster } from '../../systems/monsters/monster-generation';
 import { getMonsterByID } from '../../systems/monsters/monsters';
 import {
     getGuildDifficultyLevel,
+    getJobSpilloverChance,
     getWorldCitizens,
     getWorldName,
     getWorldType,
@@ -23,7 +24,6 @@ import {
 } from '../../systems/user/user';
 import {
     addOrSubtractRandomPercentage,
-    filterArrayByProperty,
     getPercentage,
 } from '../../systems/utils';
 import { updateWorldTendency } from '../../systems/world/world-tendency';
@@ -238,33 +238,16 @@ async function rpgJobMessageBuilder(
  */
 export async function selectJob(): Promise<Job> {
     const world = await getWorldMeta();
-    const guildLevel = world.upgrades.guild;
-    let filteredJobs: Job[] = [];
 
-    // Let's build a new job list user the jobs that are available for the current guild level.
-    if (guildLevel >= getGuildDifficultyLevel('legendary')) {
-        filteredJobs.concat(
-            filterArrayByProperty(jobList, ['challenge'], 'legendary')
-        );
-    }
-
-    if (guildLevel >= getGuildDifficultyLevel('hard')) {
-        filteredJobs.concat(
-            filterArrayByProperty(jobList, ['challenge'], 'hard')
-        );
-    }
-
-    if (guildLevel >= getGuildDifficultyLevel('medium')) {
-        filteredJobs.concat(
-            filterArrayByProperty(jobList, ['challenge'], 'medium')
-        );
-    }
-
-    filteredJobs.concat(
-        (filteredJobs = filterArrayByProperty(jobList, ['challenge'], 'easy'))
+    return selectJobForGuildLevel(
+        world.upgrades.guild,
+        {
+            medium: getGuildDifficultyLevel('medium'),
+            hard: getGuildDifficultyLevel('hard'),
+            legendary: getGuildDifficultyLevel('legendary'),
+        },
+        getJobSpilloverChance()
     );
-
-    return filteredJobs[Math.floor(Math.random() * filteredJobs.length)];
 }
 
 /**
