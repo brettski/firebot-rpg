@@ -5,6 +5,12 @@ import { MonsterDifficulties } from './monsters';
 
 export type JobChallengeRatings = 'easy' | 'medium' | 'hard' | 'legendary';
 
+export type JobTierThresholds = {
+    medium: number;
+    hard: number;
+    legendary: number;
+};
+
 export type JobTemplateReplacements = {
     name: string;
     worldName: string;

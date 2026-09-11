@@ -17,6 +17,7 @@ export type GameSettings = {
         mediumGuildLevel: number;
         hardGuildLevel: number;
         legendaryGuildLevel: number;
+        jobSpilloverChance: number;
     };
     shops: {
         refinementBaseCost: number;

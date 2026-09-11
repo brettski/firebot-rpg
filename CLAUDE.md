@@ -26,8 +26,9 @@ This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), contin
   Reports ~49 pre-existing errors, all inside `node_modules/@dice-roller/rpg-dice-roller/types/`; zero
   originate in `src/`. Filter with `npx tsc --noEmit 2>&1 | grep '^src/'` to see only real errors.
 
-There is no test runner configured (no `test` script, no jest config, no `*.test.ts` files) despite
-`ts-jest` being a devDependency — don't assume a test suite exists.
+- `npm test` — runs the jest test suite (`jest.config.js`, `ts-jest` preset). Tests are co-located as
+  `src/**/*.test.ts` (e.g. `src/systems/jobs.test.ts`). `npm run test:watch` reruns on change. `validate`
+  runs lint, then test, then build.
 
 ## Architecture
 

@@ -1063,4 +1063,148 @@ export const jobList: Job[] = [
             research: 2,
         },
     },
+    {
+        id: 56,
+        challenge: 'medium',
+        template: `A guild broker offers #name a cut of a trade caravan's profits in exchange for negotiating safe passage through a rival #citizenName's territory.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'armor',
+                rarity: ['rare', 'epic'],
+            },
+            money: 30,
+        },
+        world_tendency: {
+            happiness: 1,
+            resources: 2,
+            research: 1,
+        },
+    },
+    {
+        id: 57,
+        challenge: 'medium',
+        template: `A visiting scholar pays #name handsomely to translate a stack of pre-#worldType ruins tablets, and throws in one of their old research notes as thanks.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'spell',
+                rarity: ['basic', 'rare', 'epic'],
+            },
+            money: 30,
+        },
+        world_tendency: {
+            happiness: 0,
+            resources: 1,
+            research: 2,
+        },
+    },
+    {
+        id: 58,
+        challenge: 'medium',
+        template: `The guild puts out a bounty for anyone willing to appraise a hoard of unidentified relics. #name spends the afternoon sorting treasure from junk.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'weapon',
+                rarity: ['rare', 'epic'],
+            },
+            money: 30,
+        },
+        world_tendency: {
+            happiness: 1,
+            resources: 1,
+            research: 1,
+        },
+    },
+    {
+        id: 59,
+        challenge: 'hard',
+        template: `A rival guild offers #name a small fortune to quietly buy out a competitor's supply contracts before word gets out. #name closes the deal without a single sword drawn.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'armor',
+                rarity: ['rare', 'epic'],
+            },
+            money: 40,
+        },
+        world_tendency: {
+            happiness: 1,
+            resources: 2,
+            research: 1,
+        },
+    },
+    {
+        id: 60,
+        challenge: 'hard',
+        template: `A noble house pays #name to broker a fragile truce between two feuding #citizenName clans before the dispute spills into open conflict.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'shield',
+                rarity: ['rare', 'epic', 'legendary'],
+            },
+            money: 40,
+        },
+        world_tendency: {
+            happiness: 2,
+            resources: 1,
+            research: 1,
+        },
+    },
+    {
+        id: 61,
+        challenge: 'hard',
+        template: `The guild's archivists need a dangerous vault of forbidden texts catalogued before the enchantments sealing it decay. #name spends the job carefully cross-referencing tomes instead of fighting whatever they were meant to keep in.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'spell',
+                rarity: ['epic', 'legendary'],
+            },
+            money: 40,
+        },
+        world_tendency: {
+            happiness: 1,
+            resources: 1,
+            research: 2,
+        },
+    },
+    {
+        id: 62,
+        challenge: 'legendary',
+        template: `Envoys from a distant #worldType arrive seeking #name by name, asking them to mediate a treaty that will reshape trade across #worldName for a generation.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'title',
+                rarity: ['epic', 'legendary'],
+            },
+            money: 50,
+        },
+        world_tendency: {
+            happiness: 2,
+            resources: 2,
+            research: 1,
+        },
+    },
+    {
+        id: 63,
+        challenge: 'legendary',
+        template: `A dying archmage entrusts #name with the final key to their life's work, asking only that #name see it used to benefit the #citizenName of #worldName rather than sold to the highest bidder.`,
+        encounter: null,
+        loot: {
+            item: {
+                itemType: 'weapon',
+                rarity: ['epic', 'legendary'],
+            },
+            money: 50,
+        },
+        world_tendency: {
+            happiness: 2,
+            resources: 1,
+            research: 2,
+        },
+    },
 ];

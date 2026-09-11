@@ -315,6 +315,17 @@ export function getGuildDifficultyLevel(
 }
 
 /**
+ * Returns the percent chance a job from the next locked difficulty tier appears.
+ * @returns
+ */
+export function getJobSpilloverChance(): number {
+    const creatureSettings = getCreatureSettings();
+    return creatureSettings.jobSpilloverChance != null
+        ? creatureSettings.jobSpilloverChance
+        : 5;
+}
+
+/**
  * Returns base spell DC.
  */
 export function getBaseSpellDC() {
