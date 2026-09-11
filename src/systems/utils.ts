@@ -47,6 +47,29 @@ export function getItemFromItemListById(array: any[], itemId: number) {
 }
 
 /**
+ * Checks whether a single property value matches a search value, branching on shape
+ * rather than type: array fields compared against an array search for set equality
+ * (order-independent), array fields compared against a scalar search for membership,
+ * and everything else for exact equality.
+ * @param propertyValue
+ * @param value
+ */
+function propertyMatches(propertyValue: any, value: any): boolean {
+    if (Array.isArray(propertyValue) && Array.isArray(value)) {
+        return (
+            propertyValue.length === value.length &&
+            value.every((v) => propertyValue.includes(v))
+        );
+    }
+
+    if (Array.isArray(propertyValue)) {
+        return propertyValue.includes(value);
+    }
+
+    return propertyValue === value;
+}
+
+/**
  * A filter for getting a list of matching items from an array.
  * @param array
  * @param keys
@@ -58,17 +81,7 @@ export function filterArrayByProperty(
     keys: string[],
     value: any
 ) {
-    if (Number.isNaN(value)) {
-        return array.filter((o) =>
-            keys.some((k) =>
-                String(o[k]).toLowerCase().includes(value.toLowerCase())
-            )
-        );
-    }
-
-    return array.filter((o) =>
-        keys.some((k) => String(o[k]).toLowerCase().includes(value))
-    );
+    return array.filter((o) => keys.some((k) => propertyMatches(o[k], value)));
 }
 
 export function getTopValuesFromObject(
