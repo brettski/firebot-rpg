@@ -10,10 +10,13 @@ import {
     isTrialTierUnlocked,
     parseTrialTier,
     TRIAL_TIERS,
-    TrialFeeConfig,
-    TrialTierThresholds,
 } from '../../systems/guild/guild-trial';
 import { generateMonster } from '../../systems/monsters/monster-generation';
+import {
+    getGuildTrialCooldown,
+    getTrialFeeConfig,
+    getTrialTierThresholds,
+} from '../../systems/settings';
 import { calculateShopCost } from '../../systems/shops/shops';
 import { chargePlayerForHeal } from '../../systems/user/healer';
 import {
@@ -33,34 +36,6 @@ import {
     sendChatMessage,
     setCharacterMeta,
 } from '../firebot';
-
-// TODO(step 8): replace all three of these with typed getters over a new `guildSettings`
-// category in register-game.ts, mirroring getDuelTimeout(). They are inlined here only so
-// this file type-checks on its own -- no number in this feature is meant to ship hardcoded.
-const TRIAL_THRESHOLDS: TrialTierThresholds = {
-    basic: 1,
-    rare: 3,
-    epic: 5,
-    legendary: 7,
-};
-
-const TRIAL_FEE_CONFIG: TrialFeeConfig = {
-    baseCost: 500,
-    multiplier: {
-        basic: 0.25,
-        rare: 0.5,
-        epic: 1.0,
-        legendary: 1.75,
-    },
-    floor: {
-        basic: 500,
-        rare: 2000,
-        epic: 6000,
-        legendary: 15000,
-    },
-};
-
-const TRIAL_COOLDOWN_MINUTES = 10;
 
 const USAGE = `specify a trial tier. Tiers: ${TRIAL_TIERS.join(
     ', '
@@ -91,12 +66,10 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
 
     const { upgrades } = await getWorldMeta();
     const guildLevel = upgrades.guild;
+    const thresholds = getTrialTierThresholds();
 
-    if (!isTrialTierUnlocked(tier, guildLevel, TRIAL_THRESHOLDS)) {
-        const highest = getHighestUnlockedTrialTier(
-            guildLevel,
-            TRIAL_THRESHOLDS
-        );
+    if (!isTrialTierUnlocked(tier, guildLevel, thresholds)) {
+        const highest = getHighestUnlockedTrialTier(guildLevel, thresholds);
 
         sendChatMessage(
             highest == null
@@ -119,7 +92,9 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
     // `trial` is optional on Character and is undefined for every character created before this
     // feature shipped -- verifyUser does not backfill. strictNullChecks is off, so nothing but
     // this `?.` protects that read.
-    if (isTrialOnCooldown(player.trial?.time ?? null, TRIAL_COOLDOWN_MINUTES)) {
+    if (
+        isTrialOnCooldown(player.trial?.time ?? null, getGuildTrialCooldown())
+    ) {
         sendChatMessage(
             `@${username}, the trial ring is still being reset from ${characterName}'s last bout. Try again in a few minutes.`
         );
@@ -127,7 +102,7 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
     }
 
     const fee = await calculateShopCost(
-        calculateTrialFee(tier, getHighestStat(player), TRIAL_FEE_CONFIG)
+        calculateTrialFee(tier, getHighestStat(player), getTrialFeeConfig())
     );
     const currencyTotal = await getUserCurrencyTotal(username);
 

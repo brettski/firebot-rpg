@@ -570,6 +570,192 @@ const gameSettings: Record<string, SettingCategoryDefinition> = {
             },
         },
     },
+    guildSettings: {
+        title: 'Guild Trials',
+        description:
+            'Settings for guild trials, where players pay to fight a champion for its character class.',
+        sortRank: 6,
+        settings: {
+            guildTrialCooldown: {
+                type: 'number',
+                title: 'Trial Cooldown',
+                description:
+                    'This is the number of minutes that must pass before a player can attempt another trial.',
+                tip: 'Set to 0 to disable the cooldown entirely.',
+                default: 10,
+                sortRank: 1,
+                showBottomHr: true,
+                validation: {
+                    required: true,
+                },
+            },
+            guildTrialBaseCost: {
+                type: 'number',
+                title: 'Trial Base Cost',
+                description:
+                    'The lower this is the cheaper every trial becomes.',
+                tip: 'The fee is (highest stat - 9) x this, times the tier multiplier, with the tier floor as a minimum.',
+                default: 500,
+                sortRank: 2,
+                showBottomHr: true,
+                validation: {
+                    required: true,
+                },
+            },
+            basicGuildLevel: {
+                type: 'number',
+                title: 'Guild Level - Basic Trial',
+                description:
+                    'This is the guild level needed to attempt a basic trial.',
+                tip: 'No trial of any tier is available below this level.',
+                default: 1,
+                sortRank: 3,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            rareGuildLevel: {
+                type: 'number',
+                title: 'Guild Level - Rare Trial',
+                description:
+                    'This is the guild level needed to attempt a rare trial.',
+                tip: '',
+                default: 3,
+                sortRank: 4,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            epicGuildLevel: {
+                type: 'number',
+                title: 'Guild Level - Epic Trial',
+                description:
+                    'This is the guild level needed to attempt an epic trial.',
+                tip: '',
+                default: 5,
+                sortRank: 5,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            legendaryGuildLevel: {
+                type: 'number',
+                title: 'Guild Level - Legendary Trial',
+                description:
+                    'This is the guild level needed to attempt a legendary trial.',
+                tip: '',
+                default: 7,
+                sortRank: 6,
+                showBottomHr: true,
+                validation: {
+                    required: true,
+                },
+            },
+            basicTrialMultiplier: {
+                type: 'number',
+                title: 'Basic Trial Cost Multiplier',
+                description:
+                    'Percent of the base cost charged for a basic trial.',
+                tip: '25 means a basic trial costs a quarter of the base cost per stat point.',
+                default: 25,
+                sortRank: 7,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            rareTrialMultiplier: {
+                type: 'number',
+                title: 'Rare Trial Cost Multiplier',
+                description:
+                    'Percent of the base cost charged for a rare trial.',
+                tip: '',
+                default: 50,
+                sortRank: 8,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            epicTrialMultiplier: {
+                type: 'number',
+                title: 'Epic Trial Cost Multiplier',
+                description:
+                    'Percent of the base cost charged for an epic trial.',
+                tip: '',
+                default: 100,
+                sortRank: 9,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            legendaryTrialMultiplier: {
+                type: 'number',
+                title: 'Legendary Trial Cost Multiplier',
+                description:
+                    'Percent of the base cost charged for a legendary trial.',
+                tip: '',
+                default: 175,
+                sortRank: 10,
+                showBottomHr: true,
+                validation: {
+                    required: true,
+                },
+            },
+            basicTrialFloor: {
+                type: 'number',
+                title: 'Basic Trial Minimum Cost',
+                description: 'A basic trial never costs less than this.',
+                tip: 'This stops a brand new character buying a trial for almost nothing in a mature world.',
+                default: 500,
+                sortRank: 11,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            rareTrialFloor: {
+                type: 'number',
+                title: 'Rare Trial Minimum Cost',
+                description: 'A rare trial never costs less than this.',
+                tip: '',
+                default: 2000,
+                sortRank: 12,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            epicTrialFloor: {
+                type: 'number',
+                title: 'Epic Trial Minimum Cost',
+                description: 'An epic trial never costs less than this.',
+                tip: '',
+                default: 6000,
+                sortRank: 13,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+            legendaryTrialFloor: {
+                type: 'number',
+                title: 'Legendary Trial Minimum Cost',
+                description: 'A legendary trial never costs less than this.',
+                tip: '',
+                default: 15000,
+                sortRank: 14,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
+        },
+    },
 };
 
 export function registerRPG(): void {
