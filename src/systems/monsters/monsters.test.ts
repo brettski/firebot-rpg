@@ -1,7 +1,12 @@
 import { monsterList } from '../../data/monsters';
 import { filterArrayByProperty } from '../utils';
 
+import { DEFAULT_MONSTER_RARITY } from './monster-generation';
 import { getMonsterByDifficulty, getMonsterByID } from './monsters';
+
+jest.mock('../../firebot/firebot', () => ({
+    logger: jest.fn(),
+}));
 
 describe('getMonsterByID', () => {
     // Regression test for the filterArrayByProperty substring-matching bug (#24).
@@ -25,6 +30,17 @@ describe('getMonsterByID', () => {
     it('returns undefined for an id that does not exist', () => {
         const nonExistentId = Math.max(...monsterList.map((m) => m.id)) + 1000;
         expect(getMonsterByID(nonExistentId)).toBeUndefined();
+    });
+});
+
+describe('DEFAULT_MONSTER_RARITY', () => {
+    // Regression guard for the guild trial (#10). The trial forces a champion's *class* to a
+    // specific tier via generateMonster's separate `forcedClass` parameter. This constant is
+    // what every other roll -- weapon, armor, title, offhand -- keeps using, so if it ever
+    // grows 'legendary', the untouched `!rpg job` path (rpg-job.ts:274) silently starts
+    // handing monsters legendary gear.
+    it('stays capped at basic/rare/epic', () => {
+        expect(DEFAULT_MONSTER_RARITY).toEqual(['basic', 'rare', 'epic']);
     });
 });
 

@@ -1,14 +1,14 @@
 export type WorldTendencyTypes = 'happiness' | 'resources' | 'research';
 
 export type WorldBuildingTypes =
-    'blacksmith' | 'enchanter' | 'tavern' | 'shipyard' | 'guild' | 'trainer';
+    'blacksmith' | 'enchanter' | 'tavern' | 'guild' | 'shipyard' | 'trainer';
 
 export type WorldBuildings = {
     blacksmith: number;
     enchanter: number;
     tavern: number;
-    shipyard: number;
     guild: number;
+    shipyard: number;
     trainer: number;
 };
 

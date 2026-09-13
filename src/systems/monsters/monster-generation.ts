@@ -92,12 +92,29 @@ async function generateMonsterOffhand(
     return item;
 }
 
+/**
+ * The rarity band every monster's gear rolls within. Deliberately capped below legendary --
+ * do not widen this. The guild trial forces a champion's *class* to a higher tier through
+ * generateMonster's separate `forcedClass` parameter, precisely so that this cap, and the
+ * `!rpg job` encounters that depend on it, stay untouched.
+ */
+export const DEFAULT_MONSTER_RARITY = ['basic', 'rare', 'epic'] as Rarity[];
+
+/**
+ * @param username
+ * @param monster a monster id, or a difficulty to pick one at random from
+ * @param forcedClass when given, the monster is guaranteed a character class rolled from
+ *  this rarity band, regardless of whether its data entry normally carries one. Only the
+ *  class roll is affected -- weapon, armor, title and offhand still use
+ *  DEFAULT_MONSTER_RARITY.
+ */
 export async function generateMonster(
     username: string,
-    monster: number | MonsterDifficulties
+    monster: number | MonsterDifficulties,
+    forcedClass?: { rarity: Rarity[] }
 ): Promise<GeneratedMonster> {
     let selectedMonster;
-    const allowedMonsterRarity = ['basic', 'rare', 'epic'] as Rarity[];
+    const allowedMonsterRarity = DEFAULT_MONSTER_RARITY;
     const monsterIsID = Number(monster);
 
     // Pick the monster we're going to use.
@@ -156,12 +173,13 @@ export async function generateMonster(
         )) as StoredArmor;
     }
 
-    // Generate a class for our monster.
-    if (selectedMonster.equipment.characterClass) {
+    // Generate a class for our monster. A forced class overrides both the data entry's own
+    // "does this monster wear a class" flag and the default rarity band -- but only here.
+    if (selectedMonster.equipment.characterClass || forcedClass != null) {
         generatedMonster.characterClass = (await rpgLootGenerator(
             username,
             'characterClass',
-            allowedMonsterRarity
+            forcedClass != null ? forcedClass.rarity : allowedMonsterRarity
         )) as StoredCharacterClass;
 
         const characterClass = getItemByID(
