@@ -133,6 +133,29 @@ export function calculateTrialFee(
 }
 
 /**
+ * Re-applies the tier's floor to a fee that has already been through calculateShopCost.
+ *
+ * calculateShopCost applies the world's `resources` modifier, which at 75+ resources is a 25%
+ * *discount* -- and it runs after calculateTrialFee, so it will happily take a 500 basic trial
+ * down to 375, under its own configured minimum. That defeats the point of the floor: it exists
+ * to stop a fresh character buying a high tier cheaply in a mature world, and a mature world is
+ * precisely the one sitting on high resources with the deepest discount.
+ *
+ * The surcharge direction needs no special handling -- a fee pushed *up* is already above the
+ * floor and passes through untouched.
+ * @param tier
+ * @param fee a fee that has already had calculateShopCost applied
+ * @param config
+ */
+export function applyTrialFeeFloor(
+    tier: TrialTier,
+    fee: number,
+    config: TrialFeeConfig
+): number {
+    return Math.max(config.floor[tier], fee);
+}
+
+/**
  * Whether a trial is still on cooldown for a player. Same shape as isDuelExpired (duels.ts),
  * but inverted -- this returns true while BLOCKING, isDuelExpired returns true once NOT
  * blocking -- and `now` is an explicit parameter rather than an internal `Date.now()` call,

@@ -1,6 +1,7 @@
 import { MonsterDifficulties } from '../../types/monsters';
 
 import {
+    applyTrialFeeFloor,
     calculateTrialFee,
     getHighestStat,
     getHighestUnlockedTrialTier,
@@ -286,5 +287,44 @@ describe('isTrialOnCooldown', () => {
     it('defaults now to the real clock when omitted', () => {
         const stamp = Date.now();
         expect(isTrialOnCooldown(stamp, cooldownMinutes)).toBe(true);
+    });
+});
+
+describe('applyTrialFeeFloor', () => {
+    // The world's `resources` discount is applied by calculateShopCost *after* the fee is
+    // worked out, so without re-flooring afterwards a -25% discount takes a 500 basic trial
+    // down to 375 -- below its own configured minimum. That defeats the floor's whole purpose,
+    // since the mature, high-resources world with the deepest discount is exactly the one the
+    // floor exists to stop cheap trials in.
+    it.each(TRIAL_TIERS)(
+        'raises a discounted %s fee back up to its floor',
+        (tier) => {
+            const floor = DEFAULT_FEE_CONFIG.floor[tier];
+            const discounted = Math.floor(floor * 0.75);
+
+            expect(
+                applyTrialFeeFloor(tier, discounted, DEFAULT_FEE_CONFIG)
+            ).toBe(floor);
+        }
+    );
+
+    it.each(TRIAL_TIERS)(
+        'leaves a %s fee above the floor untouched, including a surcharge',
+        (tier) => {
+            const surcharged = DEFAULT_FEE_CONFIG.floor[tier] * 2;
+
+            expect(
+                applyTrialFeeFloor(tier, surcharged, DEFAULT_FEE_CONFIG)
+            ).toBe(surcharged);
+        }
+    );
+
+    it('is a no-op when the fee already equals the floor', () => {
+        expect(applyTrialFeeFloor('basic', 500, DEFAULT_FEE_CONFIG)).toBe(500);
+    });
+
+    it('reproduces the reported case: a 500 basic trial discounted to 375 is re-floored to 500', () => {
+        // resources >= 75 gives -25%: floor(500 * -0.25 + 500) = 375
+        expect(applyTrialFeeFloor('basic', 375, DEFAULT_FEE_CONFIG)).toBe(500);
     });
 });

@@ -2,6 +2,7 @@ import { getCompleteCharacterData } from '../../systems/characters/characters';
 import { startCombat } from '../../systems/combat/combat';
 import { getItemByID } from '../../systems/equipment/helpers';
 import {
+    applyTrialFeeFloor,
     calculateTrialFee,
     getHighestStat,
     getHighestUnlockedTrialTier,
@@ -101,8 +102,15 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
         return;
     }
 
-    const fee = await calculateShopCost(
-        calculateTrialFee(tier, getHighestStat(player), getTrialFeeConfig())
+    // The floor is re-applied *after* calculateShopCost, because the world's resources
+    // modifier would otherwise discount the fee below the tier's configured minimum.
+    const feeConfig = getTrialFeeConfig();
+    const fee = applyTrialFeeFloor(
+        tier,
+        await calculateShopCost(
+            calculateTrialFee(tier, getHighestStat(player), feeConfig)
+        ),
+        feeConfig
     );
     const currencyTotal = await getUserCurrencyTotal(username);
 
