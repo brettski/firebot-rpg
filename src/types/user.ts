@@ -27,6 +27,10 @@ export type Duel = {
     time: number | null;
 };
 
+export type Trial = {
+    time: number | null;
+};
+
 export type Character = {
     resetId: string;
     name: string;
@@ -42,6 +46,15 @@ export type Character = {
     characterClass: StoredCharacterClass;
     title: StoredTitle;
     duel: Duel;
+    // Optional on purpose. verifyUser does not backfill fields onto existing characters -- it
+    // only builds a whole new one when the metadata is missing or the resetId changed -- so
+    // every character created before the guild trial shipped has no `trial` at all, and so do
+    // the Character-shaped literals built elsewhere (GeneratedMonster, monster-generation.ts).
+    //
+    // Note this does NOT get you compiler protection: strictNullChecks is off in tsconfig.json,
+    // so `character.trial.time` compiles fine and would throw at runtime for those players.
+    // Always read it as `character.trial?.time ?? null`.
+    trial?: Trial;
 };
 
 export interface CompleteCharacter extends Character {
