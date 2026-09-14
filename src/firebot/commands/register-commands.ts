@@ -77,7 +77,7 @@ function getSubCommands(): SubCommand[] {
             id: 'fbrpg:rpg-unequip',
             usage: 'unequip [slot]',
             name: '!rpg unequip',
-            description: 'Removes the specified item.',
+            description: 'Removes the specified item. The item is lost.',
             active: true,
             trigger: 'unequip',
             arg: 'unequip',
