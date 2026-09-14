@@ -104,17 +104,7 @@ the `src/data/*` tables are always bare `NdN` (e.g. a weapon's `damage: '1d6'`);
 `1d20 +2` are never stored — combat code composes them at roll time from the relevant bonus (see
 `combat.ts` initiative and `combat-hit.ts` hit resolution).
 
-## Known gaps
-
-Open bugs live in the GitHub issue tracker (`gh issue list`). One is worth knowing before you read the
-code, because it makes working code look broken and unused code look live:
-
-- **Player character classes are never awarded.** `src/data/classes.ts` is live (monsters use it, and
-  class bonuses feed every stat calculation), but no job awards `itemType: 'characterClass'`, so every
-  player is permanently class id 1. `equipClass()` in `rpg-equip.ts` is wired up and reachable via
-  `!rpg equip class`, but always hits its "can't equip that item as a class" branch, because a
-  `characterClass` item can never reach a player's backpack. Do not "clean up" either as dead. Tracked in
-  issue #10.
+Open bugs live in the GitHub issue tracker (`gh issue list`).
 
 ## Decisions
 
