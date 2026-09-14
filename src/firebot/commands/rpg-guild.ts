@@ -3,6 +3,7 @@ import { startCombat } from '../../systems/combat/combat';
 import { getItemByID } from '../../systems/equipment/helpers';
 import {
     applyTrialFeeFloor,
+    buildTrialPriceList,
     calculateTrialFee,
     getHighestStat,
     getHighestUnlockedTrialTier,
@@ -56,6 +57,45 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
     // !rpg guild trial <tier>
     if (args[1] !== 'trial') {
         sendChatMessage(`@${username}, ${USAGE}`);
+        return;
+    }
+
+    // !rpg guild trial, with nothing after it -- show what each tier would cost right now,
+    // rather than the fight itself. Kept distinct from an invalid tier (parseTrialTier returning
+    // null for e.g. 'banana'), which still falls through to the usage message below unchanged.
+    // Deliberately skips the dead-character and cooldown checks below -- a price lookup isn't an
+    // action, so neither should block it.
+    if (args[2] === undefined) {
+        const player = await getUserData(username);
+        const { upgrades } = await getWorldMeta();
+        const feeConfig = getTrialFeeConfig();
+
+        const priceList = buildTrialPriceList(
+            getHighestStat(player),
+            upgrades.guild,
+            getTrialTierThresholds(),
+            feeConfig
+        );
+
+        const lines = await Promise.all(
+            priceList.map(async (entry) =>
+                // The `=== true` is load-bearing, not stylistic: a bare `entry.unlocked` here
+                // fails to narrow the union once there's an `await` inside the branch (verified
+                // against this repo's TS 5.9.3), so `entry.requiredGuildLevel` in the :else
+                // branch doesn't type-check without the explicit literal comparison.
+                entry.unlocked === true
+                    ? `${entry.tier} ${applyTrialFeeFloor(
+                          entry.tier,
+                          await calculateShopCost(entry.fee),
+                          feeConfig
+                      )}`
+                    : `${entry.tier} locked (guild ${entry.requiredGuildLevel})`
+            )
+        );
+
+        sendChatMessage(
+            `@${username}, guild trial prices (in ${currencyName}): ${lines.join(', ')}.`
+        );
         return;
     }
 

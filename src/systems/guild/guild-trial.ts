@@ -182,3 +182,41 @@ export function isTrialOnCooldown(
     const cooldownMs = 1000 * 60 * cooldownMinutes;
     return now - time <= cooldownMs;
 }
+
+export type TrialPriceEntry =
+    | { tier: TrialTier; unlocked: true; fee: number }
+    | { tier: TrialTier; unlocked: false; requiredGuildLevel: number };
+
+/**
+ * The per-tier price list for `!rpg guild trial` with no tier given. Deliberately mirrors
+ * calculateTrialFee's own boundary: this returns the pre-discount fee for each unlocked tier,
+ * not the final price. calculateShopCost is async and Firebot-dependent, so applying it (and
+ * applyTrialFeeFloor afterwards) is left to the caller, exactly as calculateTrialFee's own
+ * doc comment establishes for the same reason.
+ * @param highestStat
+ * @param guildLevel
+ * @param thresholds
+ * @param feeConfig
+ */
+export function buildTrialPriceList(
+    highestStat: number,
+    guildLevel: number,
+    thresholds: TrialTierThresholds,
+    feeConfig: TrialFeeConfig
+): TrialPriceEntry[] {
+    return TRIAL_TIERS.map((tier) => {
+        if (isTrialTierUnlocked(tier, guildLevel, thresholds)) {
+            return {
+                tier,
+                unlocked: true,
+                fee: calculateTrialFee(tier, highestStat, feeConfig),
+            };
+        }
+
+        return {
+            tier,
+            unlocked: false,
+            requiredGuildLevel: thresholds[tier],
+        };
+    });
+}

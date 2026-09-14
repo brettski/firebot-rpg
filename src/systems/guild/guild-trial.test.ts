@@ -2,6 +2,7 @@ import { MonsterDifficulties } from '../../types/monsters';
 
 import {
     applyTrialFeeFloor,
+    buildTrialPriceList,
     calculateTrialFee,
     getHighestStat,
     getHighestUnlockedTrialTier,
@@ -326,5 +327,113 @@ describe('applyTrialFeeFloor', () => {
     it('reproduces the reported case: a 500 basic trial discounted to 375 is re-floored to 500', () => {
         // resources >= 75 gives -25%: floor(500 * -0.25 + 500) = 375
         expect(applyTrialFeeFloor('basic', 375, DEFAULT_FEE_CONFIG)).toBe(500);
+    });
+});
+
+describe('buildTrialPriceList', () => {
+    it('returns exactly one entry per TRIAL_TIERS, in TRIAL_TIERS order', () => {
+        const list = buildTrialPriceList(
+            35,
+            7,
+            DEFAULT_THRESHOLDS,
+            DEFAULT_FEE_CONFIG
+        );
+
+        expect(list.map((entry) => entry.tier)).toEqual(TRIAL_TIERS);
+    });
+
+    it('locks every tier at guild level 0, each naming its own threshold', () => {
+        const list = buildTrialPriceList(
+            35,
+            0,
+            DEFAULT_THRESHOLDS,
+            DEFAULT_FEE_CONFIG
+        );
+
+        list.forEach((entry) => {
+            expect(entry.unlocked).toBe(false);
+            // `entry.unlocked === false` narrows the union; `!entry.unlocked` does not (verified
+            // against this repo's TS 5.9.3 -- a plain negation on a boolean discriminant isn't
+            // enough for control-flow narrowing here, only an explicit literal comparison is).
+            if (entry.unlocked === false) {
+                expect(entry.requiredGuildLevel).toBe(
+                    DEFAULT_THRESHOLDS[entry.tier]
+                );
+            }
+        });
+    });
+
+    it('unlocks every tier at guild level 7', () => {
+        const list = buildTrialPriceList(
+            35,
+            7,
+            DEFAULT_THRESHOLDS,
+            DEFAULT_FEE_CONFIG
+        );
+
+        list.forEach((entry) => {
+            expect(entry.unlocked).toBe(true);
+        });
+    });
+
+    it('splits basic/rare unlocked from epic/legendary locked at guild level 3', () => {
+        const list = buildTrialPriceList(
+            35,
+            3,
+            DEFAULT_THRESHOLDS,
+            DEFAULT_FEE_CONFIG
+        );
+        const byTier = Object.fromEntries(
+            list.map((entry) => [entry.tier, entry])
+        );
+
+        expect(byTier.basic.unlocked).toBe(true);
+        expect(byTier.rare.unlocked).toBe(true);
+        expect(byTier.epic).toEqual({
+            tier: 'epic',
+            unlocked: false,
+            requiredGuildLevel: 5,
+        });
+        expect(byTier.legendary).toEqual({
+            tier: 'legendary',
+            unlocked: false,
+            requiredGuildLevel: 7,
+        });
+    });
+
+    it.each([
+        ['basic', 3250],
+        ['rare', 6500],
+        ['epic', 13000],
+        ['legendary', 22750],
+    ] as [TrialTier, number][])(
+        'an unlocked %s fee matches calculateTrialFee exactly (stat 35)',
+        (tier, expected) => {
+            const list = buildTrialPriceList(
+                35,
+                7,
+                DEFAULT_THRESHOLDS,
+                DEFAULT_FEE_CONFIG
+            );
+            const entry = list.find((e) => e.tier === tier);
+
+            expect(entry?.unlocked).toBe(true);
+            if (entry?.unlocked) {
+                expect(entry.fee).toBe(expected);
+            }
+        }
+    );
+
+    it('a locked entry carries no fee field', () => {
+        const list = buildTrialPriceList(
+            35,
+            0,
+            DEFAULT_THRESHOLDS,
+            DEFAULT_FEE_CONFIG
+        );
+
+        list.forEach((entry) => {
+            expect('fee' in entry).toBe(false);
+        });
     });
 });
