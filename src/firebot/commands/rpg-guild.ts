@@ -94,7 +94,7 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
         );
 
         sendChatMessage(
-            `@${username}, guild trial prices (in ${currencyName}): ${lines.join(', ')}.`
+            `@${username}, guild trial prices (in ${currencyName}): ${lines.join('; ')}.`
         );
         return;
     }
@@ -137,7 +137,7 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
         isTrialOnCooldown(player.trial?.time ?? null, getGuildTrialCooldown())
     ) {
         sendChatMessage(
-            `@${username}, the trial ring is still being reset from ${characterName}'s last bout. Try again in a few minutes.`
+            `@${username}, the trial ring is still being cleaned and reset from ${characterName}'s last bout. Try again in a few minutes.`
         );
         return;
     }
@@ -193,7 +193,7 @@ export async function rpgGuildCommand(userCommand: UserCommand) {
     const healMessage = await chargePlayerForHeal(username);
     const outcome = won
         ? `${characterName} won in ${combat.rounds} rounds. The guild recognises them as a ${championClass.name} -- claim it with !rpg equip class.`
-        : `${characterName} fell in ${combat.rounds} rounds. The guild keeps the fee.`;
+        : `${characterName} fell in ${combat.rounds} rounds. The guild keeps the fee and wheels them to the healer.`;
 
     sendChatMessage(
         `@${username}, ${characterName} paid ${fee} ${currencyName} and entered the trial ring against a ${champion.name} bearing the ${championClass.name} class. ${outcome} ${healMessage}`
