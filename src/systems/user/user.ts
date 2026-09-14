@@ -38,9 +38,11 @@ export async function getUserName(username: string): Promise<string> {
 }
 
 /**
- * Verifies the character is properly built. If it's not, then it sets missing settings to default.
- * Also serves to build an initial character.
- * @param firebot
+ * Builds a character if the user doesn't have one yet, or if theirs belongs to a previous
+ * reset. Note that it does NOT backfill missing fields on an otherwise-valid character -- an
+ * existing character is left exactly as-is, so any field added after it was created will be
+ * undefined on it until the next reset. Read newer fields defensively.
+ * @param userCommand
  */
 export async function verifyUser(userCommand: UserCommand) {
     const userName = userCommand.commandSender;
@@ -101,6 +103,9 @@ export async function verifyUser(userCommand: UserCommand) {
             },
             duel: {
                 challenger: null,
+                time: null,
+            },
+            trial: {
                 time: null,
             },
         };

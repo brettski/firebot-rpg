@@ -105,8 +105,8 @@ export async function verifyWorld() {
                 blacksmith: 0,
                 tavern: 0,
                 enchanter: 0,
-                shipyard: 0,
                 guild: 0,
+                shipyard: 0,
                 trainer: 0,
             },
         };

@@ -2,6 +2,8 @@ import { getGameSettings } from '../firebot/firebot';
 import { ArmorProperties } from '../types/equipment';
 import { MonsterDifficulties } from '../types/monsters';
 
+import { TrialFeeConfig, TrialTierThresholds } from './guild/guild-trial';
+
 /**
  * Returns the settings for our world.
  * @param firebot
@@ -331,4 +333,63 @@ export function getJobSpilloverChance(): number {
 export function getBaseSpellDC() {
     const combatSettings = getCombatSettings();
     return combatSettings.spellDC;
+}
+
+/**
+ * Returns the settings for guild trials.
+ * @returns
+ */
+export function getGuildSettings() {
+    const settings = getGameSettings();
+    return settings.guildSettings;
+}
+
+/**
+ * Returns the number of minutes between a player's guild trials.
+ * @returns
+ */
+export function getGuildTrialCooldown(): number {
+    const guildSettings = getGuildSettings();
+    return guildSettings.guildTrialCooldown;
+}
+
+/**
+ * Returns the guild level required for each trial tier.
+ * @returns
+ */
+export function getTrialTierThresholds(): TrialTierThresholds {
+    const guildSettings = getGuildSettings();
+
+    return {
+        basic: guildSettings.basicGuildLevel,
+        rare: guildSettings.rareGuildLevel,
+        epic: guildSettings.epicGuildLevel,
+        legendary: guildSettings.legendaryGuildLevel,
+    };
+}
+
+/**
+ * Returns the base cost, per-tier multipliers and per-tier floors used to price a trial.
+ * Multipliers are stored as percentages in settings, matching the other shop multipliers,
+ * and are divided down to fractions here.
+ * @returns
+ */
+export function getTrialFeeConfig(): TrialFeeConfig {
+    const guildSettings = getGuildSettings();
+
+    return {
+        baseCost: guildSettings.guildTrialBaseCost,
+        multiplier: {
+            basic: guildSettings.basicTrialMultiplier / 100,
+            rare: guildSettings.rareTrialMultiplier / 100,
+            epic: guildSettings.epicTrialMultiplier / 100,
+            legendary: guildSettings.legendaryTrialMultiplier / 100,
+        },
+        floor: {
+            basic: guildSettings.basicTrialFloor,
+            rare: guildSettings.rareTrialFloor,
+            epic: guildSettings.epicTrialFloor,
+            legendary: guildSettings.legendaryTrialFloor,
+        },
+    };
 }
