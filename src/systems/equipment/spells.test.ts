@@ -1,7 +1,8 @@
+import { RARITIES } from './rarities';
 import { getSpellFilteredByRarity } from './spells';
 
 describe('getSpellFilteredByRarity', () => {
-    it.each(['basic', 'rare', 'epic', 'legendary'] as const)(
+    it.each(RARITIES)(
         'returns a %s-rarity spell when only %s is allowed',
         (rarity) => {
             const result = getSpellFilteredByRarity([rarity]);

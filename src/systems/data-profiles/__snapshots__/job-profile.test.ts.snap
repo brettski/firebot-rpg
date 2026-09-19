@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renderJobProfile matches the recorded profile 1`] = `
+"# Job Data Profile
+
+## 1. Tier summary
+
+| tier      | total | safe | fight | $ safe  | $ fight | rarity (safe) | rarity (fight)        |
+|-----------|-------|------|-------|---------|---------|---------------|-----------------------|
+| easy      | 18    | 3    | 15    | 0/10/20 | 10/20   | [basic]       | [basic,rare]          |
+| medium    | 20    | 3    | 17    | 30      | 30      | [basic,rare]  | [rare,epic]           |
+| hard      | 15    | 3    | 12    | 40      | 40      | [rare]        | [rare,epic,legendary] |
+| legendary | 13    | 2    | 11    | 50      | 50      | [rare,epic]   | [epic,legendary]      |
+
+## 2. Item type coverage by tier/bucket
+
+| tier/bucket     | weapon | armor | shield | spell | title | characterClass |
+|-----------------|--------|-------|--------|-------|-------|----------------|
+| easy/safe       | 1      | 1     | 0      | 0     | 1     | 0              |
+| easy/fight      | 6      | 5     | 2      | 2     | 0     | 0              |
+| medium/safe     | 1      | 1     | 0      | 1     | 0     | 0              |
+| medium/fight    | 8      | 4     | 2      | 3     | 0     | 0              |
+| hard/safe       | 0      | 1     | 1      | 1     | 0     | 0              |
+| hard/fight      | 5      | 2     | 3      | 2     | 0     | 0              |
+| legendary/safe  | 1      | 0     | 0      | 0     | 1     | 0              |
+| legendary/fight | 4      | 4     | 1      | 2     | 0     | 0              |
+
+## 3. Encounter style audit
+
+| style                | count | example ids          |
+|----------------------|-------|----------------------|
+| difficulty name      | 34    | 3, 5, 7, 10, 12, ... |
+| hardcoded monster id | 21    | 6, 8, 9, 11, 13, ... |
+| none (safe job)      | 11    | 1, 2, 4, 59, 60, ... |
+
+## 4. World tendency distribution by tier (bucket: all)
+
+| tier      | happiness (0,1,2) | resources (0,1,2) | research (0,1,2) | job total |
+|-----------|-------------------|-------------------|------------------|-----------|
+| easy      | 5,13,0            | 9,9,0             | 10,8,0           | 18        |
+| medium    | 1,18,1            | 6,11,3            | 5,14,1           | 20        |
+| hard      | 0,14,1            | 4,9,2             | 2,8,5            | 15        |
+| legendary | 0,2,11            | 1,2,10            | 0,2,11           | 13        |"
+`;
+
+exports[`renderJobProfile world tendency table matches the recorded snapshot for bucket=fight 1`] = `
+"| tier      | happiness (0,1,2) | resources (0,1,2) | research (0,1,2) | job total |
+|-----------|-------------------|-------------------|------------------|-----------|
+| easy      | 4,11,0            | 7,8,0             | 10,5,0           | 15        |
+| medium    | 0,16,1            | 6,9,2             | 5,12,0           | 17        |
+| hard      | 0,12,0            | 4,7,1             | 2,6,4            | 12        |
+| legendary | 0,2,9             | 1,1,9             | 0,1,10           | 11        |"
+`;
+
+exports[`renderJobProfile world tendency table matches the recorded snapshot for bucket=safe 1`] = `
+"| tier      | happiness (0,1,2) | resources (0,1,2) | research (0,1,2) | job total |
+|-----------|-------------------|-------------------|------------------|-----------|
+| easy      | 1,2,0             | 2,1,0             | 0,3,0            | 3         |
+| medium    | 1,2,0             | 0,2,1             | 0,2,1            | 3         |
+| hard      | 0,2,1             | 0,2,1             | 0,2,1            | 3         |
+| legendary | 0,0,2             | 0,1,1             | 0,1,1            | 2         |"
+`;

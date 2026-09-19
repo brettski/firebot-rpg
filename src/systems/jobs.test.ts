@@ -1,7 +1,9 @@
 import { jobList } from '../data/jobs';
+import { Rarity } from '../types/equipment';
 import { Job, JobChallengeRatings, JobTierThresholds } from '../types/jobs';
 
 import {
+    JOB_LOOT_TABLE,
     getJobTiersForBand,
     getUnlockedJobTier,
     selectJobForGuildLevel,
@@ -172,5 +174,62 @@ describe('jobList data invariants', () => {
         const ids = jobList.map((job: Job) => job.id);
         const outOfOrder = ids.filter((id, i) => i > 0 && id <= ids[i - 1]);
         expect(outOfOrder).toEqual([]);
+    });
+
+    /** Expected quality (basic=1 .. legendary=4) of a rarity array under getWeightedRarity. */
+    function expectedRarityScore(rarity: Rarity[]): number {
+        const weights: Record<Rarity, number> = {
+            basic: 50,
+            rare: 35,
+            epic: 10,
+            legendary: 5,
+        };
+        const scores: Record<Rarity, number> = {
+            basic: 1,
+            rare: 2,
+            epic: 3,
+            legendary: 4,
+        };
+        const total = rarity.reduce((sum, r) => sum + weights[r], 0);
+        return rarity.reduce(
+            (sum, r) => sum + (weights[r] / total) * scores[r],
+            0
+        );
+    }
+
+    it.each(tiers)(
+        '%s: fighting for the loot out-rewards playing it safe',
+        (tier) => {
+            const safe = expectedRarityScore(JOB_LOOT_TABLE[tier].safe);
+            const fight = expectedRarityScore(JOB_LOOT_TABLE[tier].fight);
+
+            // Losing a fight forfeits the money AND the loot (rpg-job.ts returns early
+            // on a loss), so an encounter job must pay more when it does pay.
+            expect({ tier, safe, fight, fightWins: fight > safe }).toEqual({
+                tier,
+                safe,
+                fight,
+                fightWins: true,
+            });
+        }
+    );
+
+    it('every job loot rarity matches JOB_LOOT_TABLE for its tier and encounter', () => {
+        const mismatches = jobList.flatMap((job: Job) => {
+            const bucket = job.encounter == null ? 'safe' : 'fight';
+            const expected = JOB_LOOT_TABLE[job.challenge][bucket];
+            const actual = job.loot.item?.rarity ?? [];
+
+            if (actual.join() === expected.join()) {
+                return [];
+            }
+
+            return [
+                `job ${job.id} is ${job.challenge}/${bucket}, so loot.item.rarity must be ` +
+                    `[${expected.join(', ')}] but is [${actual.join(', ')}]`,
+            ];
+        });
+
+        expect(mismatches).toEqual([]);
     });
 });

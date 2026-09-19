@@ -1,9 +1,10 @@
 import { Rarity } from '../../types/equipment';
 import { MonsterDifficulties } from '../../types/monsters';
+import { RARITIES } from '../equipment/rarities';
 
 export type TrialTier = Rarity;
 
-export const TRIAL_TIERS: TrialTier[] = ['basic', 'rare', 'epic', 'legendary'];
+export const TRIAL_TIERS: TrialTier[] = RARITIES;
 
 export type TrialTierThresholds = {
     basic: number;

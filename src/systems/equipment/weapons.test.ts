@@ -1,7 +1,8 @@
+import { RARITIES } from './rarities';
 import { getWeaponFilteredByRarity } from './weapons';
 
 describe('getWeaponFilteredByRarity', () => {
-    it.each(['basic', 'rare', 'epic', 'legendary'] as const)(
+    it.each(RARITIES)(
         'returns a %s-rarity weapon when only %s is allowed',
         (rarity) => {
             const result = getWeaponFilteredByRarity([rarity]);

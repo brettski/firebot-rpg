@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renderSpellProfile matches the recorded profile 1`] = `
+"# Spell Data Profile
+
+## 1. Id density
+
+| metric        | value |
+|---------------|-------|
+| entries       | 49    |
+| unique ids    | 49    |
+| id range      | 1–49  |
+| duplicate ids | none  |
+| gaps          | none  |
+
+## 2. Rarity distribution
+
+| rarity    | count | %      |
+|-----------|-------|--------|
+| basic     | 12    | 24.5%  |
+| rare      | 13    | 26.5%  |
+| epic      | 13    | 26.5%  |
+| legendary | 11    | 22.4%  |
+| total     | 49    | 100.0% |
+
+## 3. Damage distribution by rarity
+
+| rarity    | entries | damage (dice:count)                |
+|-----------|---------|------------------------------------|
+| basic     | 12      | 1d4:6, 1d6:1, 1d8:1, 2d4:4         |
+| rare      | 13      | 1d4:6, 1d6:2, 1d8:1, 2d4:4         |
+| epic      | 13      | 1d8:1, 1d10:1, 2d4:5, 2d6:4, 3d4:2 |
+| legendary | 11      | 1d10:1, 2d6:6, 2d8:4               |
+
+## 4. Properties & range summary
+
+**Properties usage**
+
+| property   | count |
+|------------|-------|
+| thrown     | 26    |
+| light      | 22    |
+| ammunition | 15    |
+| two-handed | 12    |
+
+**Melee vs. ranged by rarity**
+
+| rarity    | melee | ranged | total |
+|-----------|-------|--------|-------|
+| basic     | 1     | 11     | 12    |
+| rare      | 1     | 12     | 13    |
+| epic      | 1     | 12     | 13    |
+| legendary | 1     | 10     | 11    |
+
+## 5. Enchantment point sum by rarity
+
+| rarity    | entries | modal sum | off-ladder ids |
+|-----------|---------|-----------|----------------|
+| basic     | 12      | 2         | none           |
+| rare      | 13      | 3         | none           |
+| epic      | 13      | 4         | 42             |
+| legendary | 11      | 5         | none           |
+
+## 6. Refinements by rarity
+
+| rarity    | entries | modal refinements | off-ladder ids |
+|-----------|---------|-------------------|----------------|
+| basic     | 12      | 0                 | none           |
+| rare      | 13      | 0                 | none           |
+| epic      | 13      | 0                 | 42             |
+| legendary | 11      | 1                 | none           |"
+`;

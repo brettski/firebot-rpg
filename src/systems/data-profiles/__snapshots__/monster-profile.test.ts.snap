@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renderMonsterProfile matches the recorded profile 1`] = `
+"# Monster Data Profile
+
+## 1. Id density
+
+| metric        | value     |
+|---------------|-----------|
+| entries       | 38        |
+| unique ids    | 38        |
+| id range      | 1–41      |
+| duplicate ids | none      |
+| gaps          | 9, 24, 30 |
+
+## 2. Tier summary (uniform selection, not weighted)
+
+| difficulty | count |
+|------------|-------|
+| easy       | 10    |
+| medium     | 11    |
+| hard       | 8     |
+| legendary  | 9     |
+
+## 3. Equipment coverage by tier
+
+| difficulty | total | armor | title | characterClass |
+|------------|-------|-------|-------|----------------|
+| easy       | 10    | 4     | 0     | 2              |
+| medium     | 11    | 11    | 7     | 4              |
+| hard       | 8     | 8     | 8     | 8              |
+| legendary  | 9     | 9     | 9     | 9              |
+
+## 4. Bonus range by tier
+
+| difficulty | str              | dex                | int              | hp                |
+|------------|------------------|--------------------|------------------|-------------------|
+| easy       | 0–10 (median 5)  | 5–10 (median 5)    | 0–5 (median 0)   | 0–5 (median 0)    |
+| medium     | 5–15 (median 5)  | 0–15 (median 10)   | 0–10 (median 0)  | 0–15 (median 5)   |
+| hard       | 0–20 (median 5)  | 0–20 (median 12.5) | 0–20 (median 10) | 5–5 (median 5)    |
+| legendary  | 0–20 (median 10) | 0–20 (median 10)   | 0–40 (median 20) | 10–25 (median 15) |"
+`;
