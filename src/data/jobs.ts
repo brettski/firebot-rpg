@@ -27,7 +27,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['rare'],
+                rarity: ['basic'],
             },
             money: 0,
         },
@@ -45,7 +45,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic'],
+                rarity: ['basic', 'rare'],
             },
             money: 10,
         },
@@ -225,7 +225,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -243,7 +243,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -261,7 +261,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -279,7 +279,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -297,7 +297,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -315,7 +315,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -333,7 +333,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -351,7 +351,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -369,7 +369,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -387,7 +387,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -405,7 +405,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -423,7 +423,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -441,7 +441,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -459,7 +459,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -477,7 +477,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic', 'legendary'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -495,7 +495,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare', 'epic', 'legendary'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -513,7 +513,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -531,7 +531,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['basic', 'rare', 'epic', 'legendary'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -549,7 +549,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['basic', 'rare', 'epic', 'legendary'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -567,7 +567,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic', 'rare', 'epic', 'legendary'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -585,7 +585,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -603,7 +603,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -621,7 +621,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -639,7 +639,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -657,7 +657,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -675,7 +675,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -693,7 +693,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -711,7 +711,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['epic', 'legendary'],
             },
             money: 50,
         },
@@ -729,7 +729,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -801,7 +801,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -855,7 +855,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -927,7 +927,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -963,7 +963,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -981,7 +981,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['rare', 'epic'],
             },
             money: 30,
         },
@@ -1017,7 +1017,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -1035,7 +1035,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['basic', 'rare'],
+                rarity: ['rare', 'epic', 'legendary'],
             },
             money: 40,
         },
@@ -1053,7 +1053,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['rare', 'epic'],
+                rarity: ['basic', 'rare'],
             },
             money: 30,
         },
@@ -1071,7 +1071,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['basic', 'rare', 'epic'],
+                rarity: ['basic', 'rare'],
             },
             money: 30,
         },
@@ -1089,7 +1089,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['rare', 'epic'],
+                rarity: ['basic', 'rare'],
             },
             money: 30,
         },
@@ -1107,7 +1107,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'armor',
-                rarity: ['rare', 'epic'],
+                rarity: ['rare'],
             },
             money: 40,
         },
@@ -1125,7 +1125,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'shield',
-                rarity: ['rare', 'epic', 'legendary'],
+                rarity: ['rare'],
             },
             money: 40,
         },
@@ -1143,7 +1143,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'spell',
-                rarity: ['epic', 'legendary'],
+                rarity: ['rare'],
             },
             money: 40,
         },
@@ -1161,7 +1161,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'title',
-                rarity: ['epic', 'legendary'],
+                rarity: ['rare', 'epic'],
             },
             money: 50,
         },
@@ -1179,7 +1179,7 @@ export const jobList: Job[] = [
         loot: {
             item: {
                 itemType: 'weapon',
-                rarity: ['epic', 'legendary'],
+                rarity: ['rare', 'epic'],
             },
             money: 50,
         },
