@@ -1,4 +1,5 @@
 import { jobList } from '../data/jobs';
+import { Rarity } from '../types/equipment';
 import { Job, JobChallengeRatings, JobTierThresholds } from '../types/jobs';
 
 export const JOB_TIERS: JobChallengeRatings[] = [
@@ -7,6 +8,27 @@ export const JOB_TIERS: JobChallengeRatings[] = [
     'hard',
     'legendary',
 ];
+
+/**
+ * The intended job loot curve, by tier and by whether the job makes you fight for it.
+ *
+ * Rarity is WEIGHTED, not uniform: getWeightedRarity applies 50/35/10/5 normalised over
+ * whichever rarities are in the array, so a SHORTER top-heavy array is worth MORE than a
+ * longer one. ['epic','legendary'] is a 33% legendary roll; ['basic','rare','epic','legendary']
+ * is only 5%. That is what inverted the old table -- the no-encounter jobs had been given the
+ * short arrays.
+ *
+ * See docs/decisions/job-loot-pays-for-risk.md.
+ */
+export const JOB_LOOT_TABLE: Record<
+    JobChallengeRatings,
+    { safe: Rarity[]; fight: Rarity[] }
+> = {
+    easy: { safe: ['basic'], fight: ['basic', 'rare'] },
+    medium: { safe: ['basic', 'rare'], fight: ['rare', 'epic'] },
+    hard: { safe: ['rare'], fight: ['rare', 'epic', 'legendary'] },
+    legendary: { safe: ['rare', 'epic'], fight: ['epic', 'legendary'] },
+};
 
 /**
  * Returns the highest job tier unlocked at the given guild level.
