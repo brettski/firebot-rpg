@@ -1,10 +1,9 @@
 import { jobList } from '../../data/jobs';
 import { Job, JobChallengeRatings } from '../../types/jobs';
-import { JOB_LOOT_TABLE } from '../jobs';
+import { JOB_LOOT_TABLE, JOB_TIERS as TIERS } from '../jobs';
 
 import { markdownTable } from './markdown-table';
 
-const TIERS: JobChallengeRatings[] = ['easy', 'medium', 'hard', 'legendary'];
 const ITEM_TYPES = [
     'weapon',
     'armor',

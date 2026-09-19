@@ -40,12 +40,9 @@ const DEFAULT_FEE_CONFIG: TrialFeeConfig = {
 };
 
 describe('parseTrialTier', () => {
-    it.each(['basic', 'rare', 'epic', 'legendary'] as const)(
-        'parses %s',
-        (tier) => {
-            expect(parseTrialTier(tier)).toBe(tier);
-        }
-    );
+    it.each(TRIAL_TIERS)('parses %s', (tier) => {
+        expect(parseTrialTier(tier)).toBe(tier);
+    });
 
     it.each(['', 'BASIC', 'Rare', 'weapon', 'legendaries'])(
         'returns null for %j',

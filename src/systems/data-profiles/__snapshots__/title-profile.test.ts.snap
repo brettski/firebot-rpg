@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renderTitleProfile matches the recorded profile 1`] = `
+"# Title Data Profile
+
+## 1. Id density
+
+| metric        | value   |
+|---------------|---------|
+| entries       | 66      |
+| unique ids    | 65      |
+| id range      | 1–65    |
+| duplicate ids | 59 (×2) |
+| gaps          | none    |
+
+## 2. Rarity distribution
+
+| rarity    | count | %      |
+|-----------|-------|--------|
+| basic     | 12    | 18.2%  |
+| rare      | 19    | 28.8%  |
+| epic      | 21    | 31.8%  |
+| legendary | 14    | 21.2%  |
+| total     | 66    | 100.0% |
+
+## 3. Stat bonus ladder
+
+| rarity    | entries | modal sum | off-ladder ids |
+|-----------|---------|-----------|----------------|
+| basic     | 12      | 5         | none           |
+| rare      | 19      | 10        | none           |
+| epic      | 21      | 15        | none           |
+| legendary | 14      | 20        | 63             |
+
+## 4. Stat range by rarity
+
+| rarity    | str             | dex             | int              |
+|-----------|-----------------|-----------------|------------------|
+| basic     | 0–5 (median 0)  | 0–5 (median 0)  | 0–5 (median 2.5) |
+| rare      | 0–8 (median 2)  | 0–10 (median 5) | 0–10 (median 3)  |
+| epic      | 0–10 (median 0) | 0–15 (median 5) | 0–15 (median 5)  |
+| legendary | 0–15 (median 5) | 5–15 (median 5) | 0–15 (median 5)  |"
+`;

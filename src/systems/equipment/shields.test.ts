@@ -1,7 +1,8 @@
+import { RARITIES } from './rarities';
 import { getShieldFilteredByRarity } from './shields';
 
 describe('getShieldFilteredByRarity', () => {
-    it.each(['basic', 'rare', 'epic', 'legendary'] as const)(
+    it.each(RARITIES)(
         'returns a %s-rarity shield when only %s is allowed',
         (rarity) => {
             const result = getShieldFilteredByRarity([rarity]);

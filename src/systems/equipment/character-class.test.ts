@@ -1,7 +1,8 @@
 import { getClassFilteredByRarity } from './character-class';
+import { RARITIES } from './rarities';
 
 describe('getClassFilteredByRarity', () => {
-    it.each(['basic', 'rare', 'epic', 'legendary'] as const)(
+    it.each(RARITIES)(
         'returns a %s-rarity class when only %s is allowed',
         (rarity) => {
             const result = getClassFilteredByRarity([rarity]);

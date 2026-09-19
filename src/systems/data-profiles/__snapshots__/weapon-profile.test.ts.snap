@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renderWeaponProfile matches the recorded profile 1`] = `
+"# Weapon Data Profile
+
+## 1. Id density
+
+| metric        | value                          |
+|---------------|--------------------------------|
+| entries       | 75                             |
+| unique ids    | 75                             |
+| id range      | 1–83                           |
+| duplicate ids | none                           |
+| gaps          | 53, 54, 55, 73, 74, 75, 76, 77 |
+
+## 2. Rarity distribution
+
+| rarity    | count | %      |
+|-----------|-------|--------|
+| basic     | 15    | 20.0%  |
+| rare      | 22    | 29.3%  |
+| epic      | 37    | 49.3%  |
+| legendary | 1     | 1.3%   |
+| total     | 75    | 100.0% |
+
+## 3. Damage distribution by rarity
+
+| rarity    | entries | damage (dice:count)                                 |
+|-----------|---------|-----------------------------------------------------|
+| basic     | 15      | 1d3:1, 1d4:6, 1d6:6, 1d8:2                          |
+| rare      | 22      | 1d3:1, 1d4:2, 1d6:4, 1d8:8, 1d10:3, 1d12:2, 2d6:2   |
+| epic      | 37      | 1d3:2, 1d4:8, 1d6:10, 1d8:10, 1d10:3, 1d12:2, 2d6:2 |
+| legendary | 1       | 1d8:1                                               |
+
+## 4. Properties & range summary
+
+**Properties usage**
+
+| property   | count |
+|------------|-------|
+| two-handed | 24    |
+| heavy      | 22    |
+| light      | 20    |
+| thrown     | 16    |
+| versatile  | 15    |
+| ammunition | 14    |
+| finesse    | 12    |
+| reach      | 10    |
+
+**Melee vs. ranged by rarity**
+
+| rarity    | melee | ranged | total |
+|-----------|-------|--------|-------|
+| basic     | 5     | 10     | 15    |
+| rare      | 12    | 10     | 22    |
+| epic      | 17    | 20     | 37    |
+| legendary | 1     | 0      | 1     |
+
+## 5. Enchantment point sum by rarity
+
+| rarity    | entries | modal sum | off-ladder ids |
+|-----------|---------|-----------|----------------|
+| basic     | 15      | 0         | none           |
+| rare      | 22      | 0         | none           |
+| epic      | 37      | 0         | none           |
+| legendary | 1       | 50        | none           |
+
+## 6. Refinements by rarity
+
+| rarity    | entries | modal refinements | off-ladder ids |
+|-----------|---------|-------------------|----------------|
+| basic     | 15      | 0                 | none           |
+| rare      | 22      | 0                 | none           |
+| epic      | 37      | 1                 | none           |
+| legendary | 1       | 5                 | none           |"
+`;

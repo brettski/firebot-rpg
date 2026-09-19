@@ -2,6 +2,13 @@ import { monsterList } from '../../data/monsters';
 import { Monster, MonsterDifficulties } from '../../types/monsters';
 import { filterArrayByProperty } from '../utils';
 
+export const MONSTER_DIFFICULTIES: MonsterDifficulties[] = [
+    'easy',
+    'medium',
+    'hard',
+    'legendary',
+];
+
 /**
  * Selects a random monsters from the given difficulty.
  * @param difficulty
