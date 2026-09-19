@@ -162,4 +162,15 @@ describe('jobList data invariants', () => {
         );
         expect(nonCombatJobs.length).toBeGreaterThan(0);
     });
+
+    it('every job id is unique', () => {
+        const ids = jobList.map((job: Job) => job.id);
+        expect(new Set(ids).size).toBe(ids.length);
+    });
+
+    it('job ids strictly ascend in file order', () => {
+        const ids = jobList.map((job: Job) => job.id);
+        const outOfOrder = ids.filter((id, i) => i > 0 && id <= ids[i - 1]);
+        expect(outOfOrder).toEqual([]);
+    });
 });
