@@ -74,24 +74,6 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 4,
-        challenge: 'easy',
-        template: `A local lord has been keeping track of #name's exploits and grants them a title and small stipend.`,
-        encounter: null,
-        loot: {
-            item: {
-                itemType: 'title',
-                rarity: ['basic'],
-            },
-            money: 10,
-        },
-        world_tendency: {
-            happiness: 0,
-            resources: 0,
-            research: 1,
-        },
-    },
-    {
         id: 5,
         challenge: 'easy',
         template: `A cryptic aristocrat named Guire seeks a company of adventurers to thwart a monstrous plan. However, the quest is a trap.`,
@@ -146,7 +128,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 7,
+        id: 8,
         challenge: 'easy',
         template: `A shady ex-adventurer seeks a company of adventurers to steal Ziri's Articles from a rival.`,
         encounter: 3,
@@ -164,7 +146,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 8,
+        id: 9,
         challenge: 'legendary',
         template: `An ex-adventurer named Frodwe seeks a group to rescue the #worldType of #worldName from the Vampire of the Mountains of Madness.`,
         encounter: 32,
@@ -182,7 +164,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 9,
+        id: 10,
         challenge: 'easy',
         template: `A guarded elven lady seeks soldiers to escort The Demonic Articles of Phantesocr safely to the #worldType of #worldName`,
         encounter: 'easy',
@@ -200,7 +182,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 10,
+        id: 11,
         challenge: 'easy',
         template: `An aristocrat seeks a fighters to thwart the monstrous plan of Mastu the Insane.`,
         encounter: 8,
@@ -218,7 +200,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 11,
+        id: 12,
         challenge: 'easy',
         template: `An ex-adventurer named Sybel seeks adventurers to steal a powerful arcane device from a rival. However, the quest is a trap.`,
         encounter: 'medium',
@@ -236,7 +218,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 12,
+        id: 13,
         challenge: 'medium',
         template: `An elf seeks a company of adventurers to rescue the village of Hosvelundr from the Wraith of the Breda Forest.`,
         encounter: 14,
@@ -254,7 +236,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 13,
+        id: 14,
         challenge: 'medium',
         template: `An adventurer named Aethed seeks adventurers to recover the Relic of Sandard from the brigands of the Starfall Jungle.`,
         encounter: 19,
@@ -272,7 +254,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 14,
+        id: 15,
         challenge: 'medium',
         template: `An dwarf named Rotli seeks a company of adventurers to escort a caravan of exotic goods safely to the elven village of Hawe.`,
         encounter: 'medium',
@@ -290,7 +272,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 15,
+        id: 16,
         challenge: 'medium',
         template: `Adventurers are needed to escort a caravan of exotic goods to the ships in the port of Lithway.`,
         encounter: 'medium',
@@ -308,7 +290,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 16,
+        id: 17,
         challenge: 'medium',
         template: `Local thieves have tried to steal riches from a nearby tomb, but released creatures into a nearby town. The town asks for protection.`,
         encounter: 17,
@@ -326,7 +308,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 17,
+        id: 18,
         challenge: 'medium',
         template: `Dragon cultists have discovered a tablet with a summoning ritual that will allow them to destroy at a whim. They must be stopped.`,
         encounter: 'medium',
@@ -344,7 +326,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 18,
+        id: 19,
         challenge: 'medium',
         template: `A terrible plague has ravaged #worldName, and the #citizenName citizens suspect something may have contaminated the water system. Men have started going missing while searching the sewers below.`,
         encounter: 'medium',
@@ -362,7 +344,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 19,
+        id: 20,
         challenge: 'medium',
         template: `Mysterious murders plague an eerie quiet town. The adventurers hear whispers of how a young girl and her doll are somehow involved.`,
         encounter: 17,
@@ -380,7 +362,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 20,
+        id: 21,
         challenge: 'medium',
         template: `Packs of flying harpies are preying on local farmers and making off with their livestock. Victims tell the players of a mysterious forest in the mountains.`,
         encounter: 18,
@@ -398,7 +380,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 21,
+        id: 22,
         challenge: 'medium',
         template: `A friend's magic weapon goes missing, rumored to be stolen by an infamous thief. It must be found!`,
         encounter: 'medium',
@@ -416,7 +398,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 22,
+        id: 23,
         challenge: 'hard',
         template: `There are rumors at the local tavern of a mysterious cult. The townspeople believe the extremist faction is killing all of the divine casters in the area.`,
         encounter: 'hard',
@@ -434,7 +416,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 23,
+        id: 24,
         challenge: 'hard',
         template: `A necromancer and his minions have run out of graves to rob in the surrounding cities. Now they seek to create fresh cadavers by any means necessary.`,
         encounter: 23,
@@ -452,7 +434,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 24,
+        id: 25,
         challenge: 'hard',
         template: `A local artificer grants powerful artifacts in exchange for ridding his forge of an unknown infestation.`,
         encounter: 'hard',
@@ -470,7 +452,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 25,
+        id: 26,
         challenge: 'hard',
         template: `Children have gone missing at a local orphanage. The party discovers a cultist runs the facility. He brainwashes the strong into sacrificing the weak, all in the name of his patron.`,
         encounter: 22,
@@ -488,7 +470,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 26,
+        id: 27,
         challenge: 'hard',
         template: `A local mage has mysteriously passed away, and all manner of creatures and magic has begun to creep from their tower into the surrounding cities.`,
         encounter: 'hard',
@@ -506,7 +488,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 27,
+        id: 28,
         challenge: 'hard',
         template: `#citizenName are slowly disappearing. The culprit is a changeling summoner who assumes the identity of their most recent kill for several days before its subsequent murder.`,
         encounter: 'hard',
@@ -524,7 +506,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 28,
+        id: 29,
         challenge: 'hard',
         template: `A crazed owner has built his tavern atop a mysterious dungeon entrance. He coerces drunk customers to venture inside, hoping to rob them upon their return. However, the monster have gotten out.`,
         encounter: 'hard',
@@ -542,7 +524,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 29,
+        id: 30,
         challenge: 'hard',
         template: `Locals claim to have found treasure within a newly discovered dungeon. However, it is a complex trap intended to harvest souls, magical power, or life energy.`,
         encounter: 'hard',
@@ -560,7 +542,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 30,
+        id: 31,
         challenge: 'hard',
         template: `A traveling circus has come to town and proceeds to put on a fantastic show. However, they disappear in the morning without a trace, taking several children.`,
         encounter: 'hard',
@@ -578,7 +560,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 31,
+        id: 32,
         challenge: 'hard',
         template: `Two rival thieves guilds are fighting for control of the city, and their battles have spilled into the streets. Some of them are strong mages.`,
         encounter: 'hard',
@@ -596,7 +578,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 32,
+        id: 33,
         challenge: 'legendary',
         template: `A wary #citizenName named Ether seeks company to recover a valued family heirloom from the cultists of Xoth-Vhatyng.`,
         encounter: 'legendary',
@@ -614,7 +596,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 33,
+        id: 34,
         challenge: 'legendary',
         template: `A frantic sage named Mionesil seeks soldiers to hunt down and kill Nabura the Wyrm Princess.`,
         encounter: 34,
@@ -632,7 +614,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 34,
+        id: 35,
         challenge: 'legendary',
         template: `A priest named Coprosis wants guardians to protect him from the assassins of Shiva the Destroyer.`,
         encounter: 'legendary',
@@ -650,7 +632,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 35,
+        id: 36,
         challenge: 'legendary',
         template: `A man requests to join the party for protection from a secret, powerful entity. However, he has stolen a magic item from that being.`,
         encounter: 'legendary',
@@ -668,7 +650,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 36,
+        id: 37,
         challenge: 'legendary',
         template: `Slavers have been sighted capturing peasants and adventurers of various races and auctioning them off to all manner of sinister, demonic beasts.`,
         encounter: 'legendary',
@@ -686,7 +668,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 37,
+        id: 38,
         challenge: 'legendary',
         template: `A local sage has convinced the townmaster that a massive meteor will strike the city, but he has ulterior motives for evacuating the overly-trusting townspeople.`,
         encounter: 39,
@@ -704,7 +686,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 38,
+        id: 39,
         challenge: 'legendary',
         template: `The adventuring party has caught word of a cooper's guild master who plans to poison the barrels of a local winery due to a disagreement with the owner. He is under the control of an entity.`,
         encounter: 'legendary',
@@ -722,7 +704,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 39,
+        id: 40,
         challenge: 'legendary',
         template: `Dark gnomes are flooding into cities and causing minor disturbances with the townspeople. Rumors begin to surface about the expanding drow empire. There is something sinister behind the plans.`,
         encounter: 'legendary',
@@ -740,7 +722,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 40,
+        id: 41,
         challenge: 'medium',
         template: `A group of fey creatures has infiltrated the staff of a local winery. Each night barrels from the storage house go missing without any evidence of forced entry.`,
         encounter: 14,
@@ -758,7 +740,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 41,
+        id: 42,
         challenge: 'easy',
         template: `A barbarian tribe has kidnapped the daughter of a local innkeeper. Only a highly trained tracker can follow their trail and save the young girl.`,
         encounter: 3,
@@ -776,7 +758,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 42,
+        id: 43,
         challenge: 'easy',
         template: `Ancient spirits and their dryad followers have been plaguing a local logging camp. Locals suspect the foreman has been making illegal deals on the side.`,
         encounter: 2,
@@ -794,7 +776,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 43,
+        id: 44,
         challenge: 'easy',
         template: `A kind treant requests that the players assist with the removal of an infestation within its roots.`,
         encounter: 'easy',
@@ -812,7 +794,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 44,
+        id: 45,
         challenge: 'medium',
         template: `A dwarf and a centaur are nearing the end of an anger-filled drinking contest. Patrons begin taking bets on who will win and who will be the first to brawl.`,
         encounter: 21,
@@ -830,7 +812,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 45,
+        id: 46,
         challenge: 'easy',
         template: `A large cloister of flumphs has overrun a local mining facility. Though harmless, they signal a greater danger.`,
         encounter: 11,
@@ -848,7 +830,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 46,
+        id: 47,
         challenge: 'easy',
         template: `The owners of the local apothecary need a rare herb to make a special elixir. It is known to only grow in the Dread Forest and have asked the party to retrieve it.`,
         encounter: 'easy',
@@ -866,7 +848,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 47,
+        id: 48,
         challenge: 'medium',
         template: `A strange bag arrives in the post. It is an altered bag of holding that contains a small pocket dimension with a creature inside. `,
         encounter: 'medium',
@@ -884,7 +866,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 47,
+        id: 49,
         challenge: 'easy',
         template: `A local tavern is holding a Three Dragon Ante tourney with a special prize for the winner. Organizers are asking for guards to keep the peace.`,
         encounter: 'easy',
@@ -902,7 +884,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 48,
+        id: 50,
         challenge: 'easy',
         template: `As an act of protest, a local activist has freed the town's sheep from their pen. They fled into the forest shortly after.`,
         encounter: 'easy',
@@ -920,7 +902,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 49,
+        id: 51,
         challenge: 'legendary',
         template: `A group of dragons seeks to create a den within an inactive volcano. An eruption could cause widespread devastation to the neighboring towns.`,
         encounter: 33,
@@ -938,7 +920,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 50,
+        id: 52,
         challenge: 'medium',
         template: `A growing number of villagers have been found dead with evidence of a new powerful drug. The party must find the elusive alchemist responsible before their product spreads.`,
         encounter: 'medium',
@@ -956,7 +938,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 51,
+        id: 53,
         challenge: 'legendary',
         template: `A dwarf seeks company to find a library of a renowned mad mage. Once found, it is discovered he is an ancient dragon who covets knowledge over wealth.`,
         encounter: 33,
@@ -974,7 +956,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 52,
+        id: 54,
         challenge: 'medium',
         template: `An airship has crashed in a remote forest outside of town. Strange and otherworldly people have entered town seeking materials to repair the damages, and guards to protect them.`,
         encounter: 'medium',
@@ -992,7 +974,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 53,
+        id: 55,
         challenge: 'medium',
         template: `Miners are returning home mindless and unresponsive. Those who retain their wits cannot remember the days prior.`,
         encounter: 'medium',
@@ -1010,7 +992,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 54,
+        id: 56,
         challenge: 'easy',
         template: `A bag of devouring has gained sentience, gorging itself on anything it sees. The owner must be destroyed to stop it.`,
         encounter: 5,
@@ -1028,7 +1010,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 55,
+        id: 57,
         challenge: 'hard',
         template: `A college has opened its doors in the local city, preaching the wonders of science over magic. Soon after, mages of all kinds begin to vanish.`,
         encounter: 'hard',
@@ -1046,7 +1028,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 55,
+        id: 58,
         challenge: 'hard',
         template: `A blacksmith has asked the party to retrieve a recently fallen meteor. However, the players find it has worshipers.`,
         encounter: 'hard',
@@ -1064,7 +1046,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 56,
+        id: 59,
         challenge: 'medium',
         template: `A guild broker offers #name a cut of a trade caravan's profits in exchange for negotiating safe passage through a rival #citizenName's territory.`,
         encounter: null,
@@ -1082,7 +1064,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 57,
+        id: 60,
         challenge: 'medium',
         template: `A visiting scholar pays #name handsomely to translate a stack of pre-#worldType ruins tablets, and throws in one of their old research notes as thanks.`,
         encounter: null,
@@ -1100,7 +1082,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 58,
+        id: 61,
         challenge: 'medium',
         template: `The guild puts out a bounty for anyone willing to appraise a hoard of unidentified relics. #name spends the afternoon sorting treasure from junk.`,
         encounter: null,
@@ -1118,7 +1100,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 59,
+        id: 62,
         challenge: 'hard',
         template: `A rival guild offers #name a small fortune to quietly buy out a competitor's supply contracts before word gets out. #name closes the deal without a single sword drawn.`,
         encounter: null,
@@ -1136,7 +1118,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 60,
+        id: 63,
         challenge: 'hard',
         template: `A noble house pays #name to broker a fragile truce between two feuding #citizenName clans before the dispute spills into open conflict.`,
         encounter: null,
@@ -1154,7 +1136,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 61,
+        id: 64,
         challenge: 'hard',
         template: `The guild's archivists need a dangerous vault of forbidden texts catalogued before the enchantments sealing it decay. #name spends the job carefully cross-referencing tomes instead of fighting whatever they were meant to keep in.`,
         encounter: null,
@@ -1172,7 +1154,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 62,
+        id: 65,
         challenge: 'legendary',
         template: `Envoys from a distant #worldType arrive seeking #name by name, asking them to mediate a treaty that will reshape trade across #worldName for a generation.`,
         encounter: null,
@@ -1190,7 +1172,7 @@ export const jobList: Job[] = [
         },
     },
     {
-        id: 63,
+        id: 66,
         challenge: 'legendary',
         template: `A dying archmage entrusts #name with the final key to their life's work, asking only that #name see it used to benefit the #citizenName of #worldName rather than sold to the highest bidder.`,
         encounter: null,
