@@ -1,6 +1,6 @@
 {
     "name": "firebot-rpg",
-    "version": "1.1.0-rc6",
+    "version": "1.1.0",
     "description": "Firebot RPG is a Twitch chat RPG game that runs in Crowbartool's Firebot application",
     "author": "Firebottle (v1), brettski (v1.1+)",
     "main": "",

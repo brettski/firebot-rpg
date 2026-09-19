@@ -11,6 +11,7 @@ import { rpgDuelCommand } from './rpg-duel';
 import { rpgEnchanterCommand } from './rpg-enchanter';
 import { rpgEquipCommand } from './rpg-equip';
 import { rpgGuideCommand } from './rpg-guide';
+import { rpgGuildCommand } from './rpg-guild';
 import { rpgJobCommand } from './rpg-job';
 import { rpgNameCommand } from './rpg-name';
 import { rpgStatsCommand } from './rpg-stats';
@@ -76,7 +77,7 @@ function getSubCommands(): SubCommand[] {
             id: 'fbrpg:rpg-unequip',
             usage: 'unequip [slot]',
             name: '!rpg unequip',
-            description: 'Removes the specified item.',
+            description: 'Removes the specified item. The item is lost.',
             active: true,
             trigger: 'unequip',
             arg: 'unequip',
@@ -160,6 +161,23 @@ function getSubCommands(): SubCommand[] {
             active: true,
             trigger: 'guide',
             arg: 'guide',
+            cooldown: {
+                global: 0,
+                user: 60,
+            },
+        },
+        {
+            id: 'fbrpg:rpg-guild',
+            usage: 'guild trial [tier]',
+            name: '!rpg guild',
+            description:
+                'Players can pay the guild to fight a champion for its character class.',
+            active: true,
+            trigger: 'guild',
+            arg: 'guild',
+            // The real gate is the settings-driven cooldown checked inside the command
+            // (Character.trial.time), so that it can be retuned without a script reload.
+            // This is a floor to stop command spam.
             cooldown: {
                 global: 0,
                 user: 60,
@@ -254,6 +272,10 @@ export function registerCommands() {
                 }
                 case 'guide': {
                     rpgGuideCommand(userCommand);
+                    break;
+                }
+                case 'guild': {
+                    rpgGuildCommand(userCommand);
                     break;
                 }
 

@@ -50,4 +50,22 @@ export type GameSettings = {
         nakedArcaneFailure: number;
         spellDC: number;
     };
+    guildSettings: {
+        guildTrialCooldown: number;
+        guildTrialBaseCost: number;
+        basicGuildLevel: number;
+        rareGuildLevel: number;
+        epicGuildLevel: number;
+        legendaryGuildLevel: number;
+        // Stored as percentages, matching the other shop multipliers (trainingMultiplier
+        // etc.) -- 25 means 0.25x. getTrialFeeConfig() divides them down.
+        basicTrialMultiplier: number;
+        rareTrialMultiplier: number;
+        epicTrialMultiplier: number;
+        legendaryTrialMultiplier: number;
+        basicTrialFloor: number;
+        rareTrialFloor: number;
+        epicTrialFloor: number;
+        legendaryTrialFloor: number;
+    };
 };
