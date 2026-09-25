@@ -30,7 +30,7 @@ exports[`renderTitleProfile matches the recorded profile 1`] = `
 | basic     | 12      | 5         | none           |
 | rare      | 19      | 10        | none           |
 | epic      | 21      | 15        | none           |
-| legendary | 14      | 20        | 63             |
+| legendary | 14      | 20        | none           |
 
 ## 4. Stat range by rarity
 
@@ -39,5 +39,5 @@ exports[`renderTitleProfile matches the recorded profile 1`] = `
 | basic     | 0–5 (median 0)  | 0–5 (median 0)  | 0–5 (median 2.5) |
 | rare      | 0–8 (median 2)  | 0–10 (median 5) | 0–10 (median 3)  |
 | epic      | 0–10 (median 0) | 0–15 (median 5) | 0–15 (median 5)  |
-| legendary | 0–15 (median 5) | 5–15 (median 5) | 0–15 (median 5)  |"
+| legendary | 0–15 (median 5) | 2–15 (median 5) | 0–18 (median 5)  |"
 `;
