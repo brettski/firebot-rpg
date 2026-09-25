@@ -500,9 +500,9 @@ export const titleList: Title[] = [
         id: 46,
         name: 'Angelblood',
         bonuses: {
-            str: 0,
+            str: 3,
             dex: 5,
-            int: 15,
+            int: 12,
         },
         rarity: 'legendary',
         itemType: 'title',
@@ -523,8 +523,8 @@ export const titleList: Title[] = [
         name: 'Worldshifter',
         bonuses: {
             str: 0,
-            dex: 5,
-            int: 15,
+            dex: 2,
+            int: 18,
         },
         rarity: 'legendary',
         itemType: 'title',
@@ -651,17 +651,6 @@ export const titleList: Title[] = [
         itemType: 'title',
     },
     {
-        id: 59,
-        name: 'Pureheart',
-        bonuses: {
-            str: 5,
-            dex: 2,
-            int: 8,
-        },
-        rarity: 'epic',
-        itemType: 'title',
-    },
-    {
         id: 60,
         name: 'Investigator',
         bonuses: {
@@ -699,8 +688,8 @@ export const titleList: Title[] = [
         name: 'Allseer',
         bonuses: {
             str: 0,
-            dex: 5,
-            int: 10,
+            dex: 3,
+            int: 17,
         },
         rarity: 'legendary',
         itemType: 'title',
@@ -725,6 +714,17 @@ export const titleList: Title[] = [
             int: 2,
         },
         rarity: 'rare',
+        itemType: 'title',
+    },
+    {
+        id: 66,
+        name: 'Pureheart',
+        bonuses: {
+            str: 5,
+            dex: 2,
+            int: 8,
+        },
+        rarity: 'epic',
         itemType: 'title',
     },
 ];
