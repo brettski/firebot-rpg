@@ -224,9 +224,9 @@ export const classList: CharacterClass[] = [
         id: 20,
         name: 'Champion',
         bonuses: {
-            str: 20,
-            dex: 0,
-            int: 15,
+            str: 15,
+            dex: 10,
+            int: 5,
         },
         rarity: 'rare',
         itemType: 'characterClass',
@@ -632,7 +632,7 @@ export const classList: CharacterClass[] = [
         name: 'Paladin of the Crown',
         bonuses: {
             str: 15,
-            dex: 15,
+            dex: 10,
             int: 10,
         },
         rarity: 'epic',
@@ -767,7 +767,7 @@ export const classList: CharacterClass[] = [
             dex: 30,
             int: 5,
         },
-        rarity: 'epic',
+        rarity: 'legendary',
         itemType: 'characterClass',
     },
     {

@@ -19,8 +19,8 @@ exports[`renderClassProfile matches the recorded profile 1`] = `
 |-----------|-------|--------|
 | basic     | 15    | 19.5%  |
 | rare      | 18    | 23.4%  |
-| epic      | 24    | 31.2%  |
-| legendary | 20    | 26.0%  |
+| epic      | 23    | 29.9%  |
+| legendary | 21    | 27.3%  |
 | total     | 77    | 100.0% |
 
 ## 3. Stat bonus ladder
@@ -28,16 +28,16 @@ exports[`renderClassProfile matches the recorded profile 1`] = `
 | rarity    | entries | modal sum | off-ladder ids |
 |-----------|---------|-----------|----------------|
 | basic     | 15      | 25        | 1              |
-| rare      | 18      | 30        | 20             |
-| epic      | 24      | 35        | 58, 70         |
-| legendary | 20      | 40        | none           |
+| rare      | 18      | 30        | none           |
+| epic      | 23      | 35        | none           |
+| legendary | 21      | 40        | none           |
 
 ## 4. Stat range by rarity
 
-| rarity    | str              | dex                | int                |
-|-----------|------------------|--------------------|--------------------|
-| basic     | 0–20 (median 5)  | 0–20 (median 10)   | 0–25 (median 10)   |
-| rare      | 0–20 (median 5)  | 0–25 (median 10)   | 0–20 (median 12.5) |
-| epic      | 0–20 (median 10) | 5–30 (median 10)   | 0–30 (median 12.5) |
-| legendary | 5–25 (median 10) | 5–30 (median 12.5) | 0–30 (median 15)   |"
+| rarity    | str              | dex              | int              |
+|-----------|------------------|------------------|------------------|
+| basic     | 0–20 (median 5)  | 0–20 (median 10) | 0–25 (median 10) |
+| rare      | 0–20 (median 5)  | 0–25 (median 10) | 0–20 (median 10) |
+| epic      | 0–20 (median 10) | 5–25 (median 10) | 0–30 (median 15) |
+| legendary | 5–25 (median 10) | 5–30 (median 15) | 0–30 (median 15) |"
 `;
