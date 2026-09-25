@@ -617,17 +617,6 @@ export const classList: CharacterClass[] = [
         itemType: 'characterClass',
     },
     {
-        id: 56,
-        name: 'Warlock of the Old One',
-        bonuses: {
-            str: 5,
-            dex: 5,
-            int: 30,
-        },
-        rarity: 'legendary',
-        itemType: 'characterClass',
-    },
-    {
         id: 57,
         name: 'Arcane Trickster',
         bonuses: {
@@ -854,6 +843,17 @@ export const classList: CharacterClass[] = [
             str: 10,
             dex: 15,
             int: 15,
+        },
+        rarity: 'legendary',
+        itemType: 'characterClass',
+    },
+    {
+        id: 78,
+        name: 'Warlock of the Old One',
+        bonuses: {
+            str: 5,
+            dex: 5,
+            int: 30,
         },
         rarity: 'legendary',
         itemType: 'characterClass',

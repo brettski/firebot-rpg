@@ -5,13 +5,13 @@ exports[`renderClassProfile matches the recorded profile 1`] = `
 
 ## 1. Id density
 
-| metric        | value   |
-|---------------|---------|
-| entries       | 77      |
-| unique ids    | 76      |
-| id range      | 1–77    |
-| duplicate ids | 56 (×2) |
-| gaps          | 28      |
+| metric        | value |
+|---------------|-------|
+| entries       | 77    |
+| unique ids    | 77    |
+| id range      | 1–78  |
+| duplicate ids | none  |
+| gaps          | 28    |
 
 ## 2. Rarity distribution
 
