@@ -19,8 +19,8 @@ exports[`renderSpellProfile matches the recorded profile 1`] = `
 |-----------|-------|--------|
 | basic     | 12    | 24.5%  |
 | rare      | 13    | 26.5%  |
-| epic      | 13    | 26.5%  |
-| legendary | 11    | 22.4%  |
+| epic      | 12    | 24.5%  |
+| legendary | 12    | 24.5%  |
 | total     | 49    | 100.0% |
 
 ## 3. Damage distribution by rarity
@@ -29,8 +29,8 @@ exports[`renderSpellProfile matches the recorded profile 1`] = `
 |-----------|---------|------------------------------------|
 | basic     | 12      | 1d4:6, 1d6:1, 1d8:1, 2d4:4         |
 | rare      | 13      | 1d4:6, 1d6:2, 1d8:1, 2d4:4         |
-| epic      | 13      | 1d8:1, 1d10:1, 2d4:5, 2d6:4, 3d4:2 |
-| legendary | 11      | 1d10:1, 2d6:6, 2d8:4               |
+| epic      | 12      | 1d8:1, 1d10:1, 2d4:5, 2d6:3, 3d4:2 |
+| legendary | 12      | 1d10:1, 2d6:7, 2d8:4               |
 
 ## 4. Properties & range summary
 
@@ -49,8 +49,8 @@ exports[`renderSpellProfile matches the recorded profile 1`] = `
 |-----------|-------|--------|-------|
 | basic     | 1     | 11     | 12    |
 | rare      | 1     | 12     | 13    |
-| epic      | 1     | 12     | 13    |
-| legendary | 1     | 10     | 11    |
+| epic      | 1     | 11     | 12    |
+| legendary | 1     | 11     | 12    |
 
 ## 5. Enchantment point sum by rarity
 
@@ -58,8 +58,8 @@ exports[`renderSpellProfile matches the recorded profile 1`] = `
 |-----------|---------|-----------|----------------|
 | basic     | 12      | 2         | none           |
 | rare      | 13      | 3         | none           |
-| epic      | 13      | 4         | 42             |
-| legendary | 11      | 5         | none           |
+| epic      | 12      | 4         | none           |
+| legendary | 12      | 5         | none           |
 
 ## 6. Refinements by rarity
 
@@ -67,6 +67,6 @@ exports[`renderSpellProfile matches the recorded profile 1`] = `
 |-----------|---------|-------------------|----------------|
 | basic     | 12      | 0                 | none           |
 | rare      | 13      | 0                 | none           |
-| epic      | 13      | 0                 | 42             |
-| legendary | 11      | 1                 | none           |"
+| epic      | 12      | 0                 | none           |
+| legendary | 12      | 1                 | none           |"
 `;

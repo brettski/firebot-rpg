@@ -823,7 +823,7 @@ export const spellList: Spell[] = [
     },
     {
         id: 42,
-        rarity: 'epic',
+        rarity: 'legendary',
         name: 'Tendrils',
         cost: 1,
         damage: '2d6',
