@@ -637,8 +637,8 @@ export const monsterList: Monster[] = [
             hp: 25,
         },
         amount: {
-            couple: 'Old Iron Golumn',
-            many: 'spell-forged Iron Golumn',
+            couple: 'Old Iron Golem',
+            many: 'spell-forged Iron Golem',
         },
     },
     {
