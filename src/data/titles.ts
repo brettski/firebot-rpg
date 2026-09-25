@@ -651,17 +651,6 @@ export const titleList: Title[] = [
         itemType: 'title',
     },
     {
-        id: 59,
-        name: 'Pureheart',
-        bonuses: {
-            str: 5,
-            dex: 2,
-            int: 8,
-        },
-        rarity: 'epic',
-        itemType: 'title',
-    },
-    {
         id: 60,
         name: 'Investigator',
         bonuses: {
@@ -725,6 +714,17 @@ export const titleList: Title[] = [
             int: 2,
         },
         rarity: 'rare',
+        itemType: 'title',
+    },
+    {
+        id: 66,
+        name: 'Pureheart',
+        bonuses: {
+            str: 5,
+            dex: 2,
+            int: 8,
+        },
+        rarity: 'epic',
         itemType: 'title',
     },
 ];
