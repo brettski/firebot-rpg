@@ -13,10 +13,11 @@
         "build:dev": "npm run build && npm run copy",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
+        "typecheck": "tsc --noEmit --skipLibCheck",
         "test": "jest",
         "test:watch": "jest --watch",
         "copy": "node ./scripts/copy-build.js",
-        "validate": "npm run lint && npm run test && npm run build",
+        "validate": "npm run lint && npm run typecheck && npm run test && npm run build",
         "prepare": "husky"
     },
     "license": "GPL-3.0-only",
