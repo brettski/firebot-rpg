@@ -22,13 +22,17 @@ This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), contin
   `*.{js,jsx,ts,tsx}` files, with `eslint --fix` then `eslint`). Checks all of `src/`, nested
   directories included.
 - `npx prettier --write .` — formatting (`*.json` is auto-formatted by lint-staged on commit).
-- `npx tsc --noEmit` — type-check without emitting (there is no separate `build:types` npm script).
-  Reports ~49 pre-existing errors, all inside `node_modules/@dice-roller/rpg-dice-roller/types/`; zero
-  originate in `src/`. Filter with `npx tsc --noEmit 2>&1 | grep '^src/'` to see only real errors.
+- `npm run typecheck` — `tsc --noEmit --skipLibCheck`. Plain `npx tsc --noEmit` reports ~49 pre-existing
+  errors, all inside `node_modules/@dice-roller/rpg-dice-roller/types/` (zero in `src/`); `--skipLibCheck`
+  skips those `.d.ts` files while still checking `src/`, so this exits 0 when the code is clean.
 
 - `npm test` — runs the jest test suite (`jest.config.js`, `ts-jest` preset). Tests are co-located as
   `src/**/*.test.ts` (e.g. `src/systems/jobs.test.ts`). `npm run test:watch` reruns on change. `validate`
-  runs lint, then test, then build.
+  runs lint, then typecheck, then test, then build.
+
+CI: `.github/workflows/validate.yml` runs lint, typecheck, test and build on PRs to `main` (and pushes to
+`main`), and uploads `dist/Firebot-RPG.js` as a build artifact. Dependabot (`.github/dependabot.yml`)
+opens weekly npm and GitHub Actions update PRs.
 
 ## Architecture
 
