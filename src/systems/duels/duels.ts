@@ -3,16 +3,23 @@ import { startCombat } from '../combat/combat';
 import { getDuelTimeout } from '../settings';
 import { getUserData } from '../user/user';
 
+/**
+ * Minutes a duel challenge stays open. Uses the Duel Timeout setting,
+ * falling back to 2 if it is unset or 0.
+ */
+export function getDuelTimeoutMinutes() {
+    return getDuelTimeout() || 2;
+}
+
 export function isDuelExpired(date: number | null) {
     if (date == null) {
         return true;
     }
 
-    const duelTimeout = getDuelTimeout() ? getDuelTimeout() : 2;
-    const timer = 1000 * 60 * duelTimeout;
+    const timer = 1000 * 60 * getDuelTimeoutMinutes();
     const checked = Date.now() - timer;
 
-    // If duel challenge time is less than current time -2 minutes, duel is expired.
+    // If the challenge is older than the timeout, the duel is expired.
     return date < checked;
 }
 

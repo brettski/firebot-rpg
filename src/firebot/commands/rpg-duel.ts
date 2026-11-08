@@ -1,4 +1,8 @@
-import { isDuelExpired, startDuel } from '../../systems/duels/duels';
+import {
+    getDuelTimeoutMinutes,
+    isDuelExpired,
+    startDuel,
+} from '../../systems/duels/duels';
 import { getDuelChallengeSoundSettings } from '../../systems/settings';
 import { getUserData, getUserName } from '../../systems/user/user';
 import { UserCommand } from '../../types/firebot';
@@ -71,10 +75,13 @@ export async function rpgDuelCommand(userCommand: UserCommand) {
             }
 
             // Send our final message.
+            const timeoutMinutes = getDuelTimeoutMinutes();
             sendChatMessage(
                 `@${username} & @${challenged}: ${characterName} has challenged ${await getUserName(
                     challenged
-                )} to a duel! @${challenged} has 2 minutes to accept. Enter, "!rpg duel accept" to accept the challenge.`
+                )} to a duel! @${challenged} has ${timeoutMinutes} minute${
+                    timeoutMinutes === 1 ? '' : 's'
+                } to accept. Enter, "!rpg duel accept" to accept the challenge.`
             );
 
             break;
