@@ -289,6 +289,19 @@ export function getDuelTimeout() {
 }
 
 /**
+ * Get duel challenge sound settings.
+ * @returns
+ */
+export function getDuelChallengeSoundSettings() {
+    const gameSettings = getCombatSettings();
+    return {
+        filepath: gameSettings.duelChallengeSound,
+        volume: gameSettings.duelChallengeSoundVolume,
+        useOverlay: gameSettings.duelChallengeSoundOverlay,
+    };
+}
+
+/**
  * Returns guild level needed for specific difficulties.
  * @param difficulty
  * @returns

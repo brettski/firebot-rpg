@@ -1,3 +1,5 @@
+import { existsSync } from 'fs';
+
 import { RunRequest } from '@crowbartools/firebot-custom-scripts-types';
 import { SystemCommand } from '@crowbartools/firebot-custom-scripts-types/types/modules/command-manager';
 import { FirebotGame } from '@crowbartools/firebot-custom-scripts-types/types/modules/game-manager';
@@ -66,6 +68,51 @@ export function sendChatMessage(
         whisperTarget,
         accountType
     );
+}
+
+/**
+ * Plays a local sound file through Firebot's built-in Play Sound effect.
+ * Best-effort: blank/missing files and Firebot errors are logged, never thrown.
+ */
+export async function playSound(
+    filepath: string,
+    volume: number,
+    useOverlay: boolean
+): Promise<void> {
+    if (!filepath || filepath.trim() === '') {
+        return;
+    }
+
+    if (!existsSync(filepath)) {
+        logger('warn', `Sound file not found, skipping: ${filepath}`);
+        return;
+    }
+
+    try {
+        await firebot.modules.effectRunner.processEffects({
+            trigger: {
+                type: 'custom_script',
+                metadata: { username: getStreamerUsername() },
+            },
+            effects: {
+                id: 'fbrpg-play-sound',
+                list: [
+                    {
+                        id: 'fbrpg-play-sound-effect',
+                        type: 'firebot:playsound',
+                        soundType: 'local',
+                        filepath,
+                        volume,
+                        audioOutputDevice: useOverlay
+                            ? { label: 'Overlay', deviceId: 'overlay' }
+                            : { label: '', deviceId: '' },
+                    },
+                ],
+            },
+        });
+    } catch (error) {
+        logger('error', `Failed to play sound: ${error}`);
+    }
 }
 
 export function registerSystemCommand(systemCommand: SystemCommand): void {

@@ -32,6 +32,9 @@ export type GameSettings = {
     };
     combatSettings: {
         duelTimeout: number;
+        duelChallengeSound: string;
+        duelChallengeSoundVolume: number;
+        duelChallengeSoundOverlay: boolean;
         offHandMissChance: number;
         rangedInMeleePenalty: number;
         hitBonus: number;

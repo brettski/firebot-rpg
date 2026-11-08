@@ -348,6 +348,46 @@ const gameSettings: Record<string, SettingCategoryDefinition> = {
                     required: true,
                 },
             },
+            duelChallengeSound: {
+                type: 'filepath',
+                title: 'Duel Challenge Sound',
+                description:
+                    'Optional sound file played when one player challenges another to a duel.',
+                tip: 'Supported formats: mp3, ogg, oga, wav, flac. Leave blank for no sound.',
+                default: '',
+                sortRank: 1.1,
+                showBottomHr: false,
+                validation: {
+                    required: false,
+                },
+            },
+            duelChallengeSoundVolume: {
+                type: 'number',
+                title: 'Duel Challenge Sound Volume',
+                description: 'Volume of the duel challenge sound (1-10).',
+                tip: 'Same scale as the Firebot Play Sound effect. 5 is its default.',
+                default: 5,
+                sortRank: 1.2,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                    min: 1,
+                    max: 10,
+                },
+            },
+            duelChallengeSoundOverlay: {
+                type: 'boolean',
+                title: 'Play Duel Sound Through Overlay',
+                description:
+                    "If on, the sound plays in the Firebot overlay (OBS browser source) so viewers hear it. If off, it plays on Firebot's default audio output device.",
+                tip: 'Requires the Firebot overlay to be loaded in OBS.',
+                default: false,
+                sortRank: 1.3,
+                showBottomHr: false,
+                validation: {
+                    required: true,
+                },
+            },
             offHandMissChance: {
                 type: 'number',
                 title: 'Off hand fumble chance',
