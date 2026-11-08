@@ -31,8 +31,8 @@ This is a fork of `itsjesski/firebot-rpg` (originally "Firebottle") (v1), contin
   runs lint, then typecheck, then test, then build.
 
 CI: `.github/workflows/validate.yml` runs lint, typecheck, test and build on PRs to `main` (and pushes to
-`main`), and uploads `dist/Firebot-RPG.js` as a build artifact. Dependabot (`.github/dependabot.yml`)
-opens weekly npm and GitHub Actions update PRs.
+`main`), and uploads `dist/Firebot-RPG.js` as a build artifact. There is no Dependabot config and no
+automated update PRs; update dependencies by hand.
 
 ## Architecture
 
