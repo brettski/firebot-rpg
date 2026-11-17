@@ -799,7 +799,7 @@ const gameSettings: Record<string, SettingCategoryDefinition> = {
 };
 
 export function registerRPG(): void {
-    logger('info', 'RPG: Starting Firebot RPG...');
+    logger('info', 'Starting Firebot RPG...');
 
     registerGame({
         id: 'fbrpg',
@@ -809,14 +809,14 @@ export function registerRPG(): void {
         icon: 'fa-swords',
         settingCategories: gameSettings,
         onLoad: async () => {
-            logger('info', 'RPG: Game enabled.');
+            logger('info', 'Game enabled.');
             registerCommands();
             await verifyWorld();
             await startGameCycle();
         },
         onUnload: () => {
             // Game was switched off in Firebot's Games page; stop the world cycle.
-            logger('info', 'RPG: Game disabled.');
+            logger('info', 'Game disabled.');
             stopGameCycle();
         },
         onSettingsUpdate: () => {
