@@ -123,6 +123,31 @@ export function registerSystemCommand(systemCommand: SystemCommand): void {
 export function registerGame(gameDefinition: FirebotGame): void {
     const { gameManager } = firebot.modules;
     gameManager.registerGame(gameDefinition);
+
+    // Firebot 5.67+: legacy startup scripts load after the Games UI has fetched
+    // its list, and registerGame() no longer notifies the UI, so push a refresh.
+    // The method does not exist before 5.67, where the UI pulls the list itself.
+    const gm = gameManager as typeof gameManager & {
+        triggerUiRefresh?: () => void;
+    };
+    if (typeof gm.triggerUiRefresh === 'function') {
+        gm.triggerUiRefresh();
+    }
+}
+
+export function unregisterGame(gameId: string): void {
+    const { gameManager } = firebot.modules;
+    const gm = gameManager as typeof gameManager & {
+        unregisterGame?: (id: string) => void;
+        triggerUiRefresh?: () => void;
+    };
+    // Both methods only exist on Firebot 5.67+.
+    if (typeof gm.unregisterGame === 'function') {
+        gm.unregisterGame(gameId);
+    }
+    if (typeof gm.triggerUiRefresh === 'function') {
+        gm.triggerUiRefresh();
+    }
 }
 
 export function getGameSettings(): GameSettings | null {
