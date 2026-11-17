@@ -809,12 +809,14 @@ export function registerRPG(): void {
         icon: 'fa-swords',
         settingCategories: gameSettings,
         onLoad: async () => {
+            logger('info', 'RPG: Game enabled.');
             registerCommands();
             await verifyWorld();
             await startGameCycle();
         },
         onUnload: () => {
             // Game was switched off in Firebot's Games page; stop the world cycle.
+            logger('info', 'RPG: Game disabled.');
             stopGameCycle();
         },
         onSettingsUpdate: () => {
