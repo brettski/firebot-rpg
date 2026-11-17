@@ -53,7 +53,7 @@ export async function verifyUser(userCommand: UserCommand) {
     if (characterStats == null || characterStats.resetId !== getResetID()) {
         logger(
             'debug',
-            `RPG: ${userName} doesn't exist yet! Creating a new character.`
+            `${userName} doesn't exist yet! Creating a new character.`
         );
         const newCharacter: Character = {
             resetId: getResetID(),
@@ -114,10 +114,7 @@ export async function verifyUser(userCommand: UserCommand) {
         return;
     }
 
-    logger(
-        'debug',
-        `RPG: ${userName} exists! No need to create a new character.`
-    );
+    logger('debug', `${userName} exists! No need to create a new character.`);
 }
 
 /**

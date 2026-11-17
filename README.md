@@ -30,6 +30,14 @@ The script is written in TypeScript and the packages are compatible with Node v2
 
 See the [Developer Handbook](https://github.com/brettski/firebot-rpg/wiki/Developer-Handbook) for architecture, conventions, and contribution guidelines.
 
+## Firebot plugin system (v5.67+)
+
+[Firebot v5.67.0](https://github.com/crowbartools/Firebot/releases/tag/v5.67.0) introduced a new plugin system and deprecated legacy custom scripts. Firebot RPG still runs as a legacy startup script, which is why its manifest sets `startupOnly: true`. Firebot 5.67 only loads legacy startup scripts that set it.
+
+- **Why it hasn't moved to the new plugin format:** in v5.67.0, the new plugin API has no way to register a game. Moving to it would lose the game's entry on Firebot's Games page and its settings pages.
+- **Possible breakage in Firebot v5.68:** the v5.67.0 release notes say legacy scripts may break as early as v5.68.0, because Firebot's viewer database, currency, and roles systems are changing. Firebot RPG stores characters and the world in viewer metadata and uses the currency system, so it is likely to be affected.
+- **How the Games page fix works:** in 5.67, legacy scripts load after the Games page has fetched its game list. Firebot RPG calls the game manager's `triggerUiRefresh()` after registering, so the game appears there. The legacy script API still exposes Firebot's real game manager, which makes that call possible.
+
 ## License
 
 [GPL-3.0](LICENSE)
