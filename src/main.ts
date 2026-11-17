@@ -11,6 +11,7 @@ const script: Firebot.CustomScript<{}> = {
             author: __SCRIPT_AUTHOR__,
             version: __SCRIPT_VERSION__,
             firebotVersion: '5',
+            startupOnly: true,
         };
     },
     getDefaultParameters: () => {
