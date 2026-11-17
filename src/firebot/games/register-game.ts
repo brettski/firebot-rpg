@@ -1,6 +1,6 @@
 import { SettingCategoryDefinition } from '@crowbartools/firebot-custom-scripts-types/types/modules/game-manager';
 
-import { startGameCycle } from '../../systems/cycle';
+import { startGameCycle, stopGameCycle } from '../../systems/cycle';
 import { formatDate } from '../../systems/utils';
 import { verifyWorld } from '../../systems/world/world-stats';
 import { registerCommands } from '../commands/register-commands';
@@ -813,7 +813,10 @@ export function registerRPG(): void {
             await verifyWorld();
             await startGameCycle();
         },
-        onUnload: () => {},
+        onUnload: () => {
+            // Game was switched off in Firebot's Games page; stop the world cycle.
+            stopGameCycle();
+        },
         onSettingsUpdate: () => {
             verifyWorld();
         },
